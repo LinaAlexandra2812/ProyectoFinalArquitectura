@@ -1,0 +1,90 @@
+\doxysection{security.\+h}
+\hypertarget{security_8h_source}{}\label{security_8h_source}\mbox{\hyperlink{security_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ SECURITY\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ SECURITY\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{variables_8h}{variables.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{security_8h_a4848fce409016cdcb4688dce04443726}{password}}\ [5]\ =\ \{\textcolor{charliteral}{'0'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'4'}\};\ }
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{security_8h_a04cecf6708b77deed43900afdf14e8d9}{tries}}\ =\ 0;\ }
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{security_8h_a8423150d4bbed1353694fcda6f39d548}{intentoActual}}\ [6];\ }
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{security_8h_aacb6104d043c4b96b8fc3ec7bdd5feae}{cantidadCaracteres}}\ =\ 0;\ }
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{security_8h_a46092e75ce4f5c960b0e9679428dce35}{sistemaBloqueado}}\ =\ 0;\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{security_8h_a2c018b07f320da4371811bb498b61a82}{seguridad}}()\{}
+\DoxyCodeLine{00028\ \ }
+\DoxyCodeLine{00029\ \ \ Serial.println(\textcolor{stringliteral}{"{}Ha\ entrado\ a\ el\ estado\ Start"{}});}
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{security_8h_a04cecf6708b77deed43900afdf14e8d9}{tries}}\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{security_8h_aacb6104d043c4b96b8fc3ec7bdd5feae}{cantidadCaracteres}}\ =\ 0;}
+\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{security_8h_a46092e75ce4f5c960b0e9679428dce35}{sistemaBloqueado}}\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ digitalWrite(\mbox{\hyperlink{variables_8h_a4845bb5aed44e522c58d987e9fc75655}{ledR}},LOW);}
+\DoxyCodeLine{00034\ \ \ digitalWrite(\mbox{\hyperlink{variables_8h_a223c77983bbc99c4cdedb45552d47e5d}{ledB}},\ LOW);}
+\DoxyCodeLine{00035\ \ \ digitalWrite(\mbox{\hyperlink{variables_8h_a34db818eb5d4f93a3b601bd9fd965ade}{ledG}},\ LOW);}
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}.clear();}
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}.print(\textcolor{stringliteral}{"{}Ingrese\ clave"{}});}
+\DoxyCodeLine{00038\ \ \ }
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{variables_8h_ac4de90a9d18b3ce9838fe041a20a7db5}{taskLoop}}.Start();}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i=0;\ i<5;i++)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{security_8h_a8423150d4bbed1353694fcda6f39d548}{intentoActual}}[i]\ =\ \textcolor{charliteral}{'*'};}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{security_8h_a514fb85a18adce0433a16db92539fffc}{runRightPass}}()\{}
+\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}.clear();}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}.print(\textcolor{stringliteral}{"{}Clave\ correcta"{}});}
+\DoxyCodeLine{00050\ \ \ digitalWrite(\mbox{\hyperlink{variables_8h_a34db818eb5d4f93a3b601bd9fd965ade}{ledG}},\ HIGH);}
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{variables_8h_ad9768b93be7a56d5f1063d04dc00adf8}{taskStopLoop}}.Start();}
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{variables_8h_a5cd401b5d2c0a30f342f2d842171e56b}{taskCorrect}}.Start();}
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{variables_8h_af05ce2d503a38201374645796e06bbfa}{taskTimeOut30k}}.Stop();}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{security_8h_a6391f40e9a91ac89de2a230b88d4fb92}{runWrongPass}}()\{}
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}.clear();}
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}.setCursor(0,0);}
+\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}.print(\textcolor{stringliteral}{"{}Clave\ incorrecta"{}});}
+\DoxyCodeLine{00063\ \ \ digitalWrite(\mbox{\hyperlink{variables_8h_a223c77983bbc99c4cdedb45552d47e5d}{ledB}},\ HIGH);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i=0;\ i<5;i++)}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{security_8h_a8423150d4bbed1353694fcda6f39d548}{intentoActual}}[i]\ =\ \textcolor{charliteral}{'*'};}
+\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{variables_8h_ad9768b93be7a56d5f1063d04dc00adf8}{taskStopLoop}}.Start();\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{security_8h_a04cecf6708b77deed43900afdf14e8d9}{tries}}\ ==\ 2)\{}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{variables_8h_aa83811365d7995764e95327aeae43a8a}{taskSysBlock}}.Start();}
+\DoxyCodeLine{00070\ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{variables_8h_ad2cd56e5615efe0c1dfd42c9147f12b5}{taskAgain}}.Start();}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{security_8h_aacb6104d043c4b96b8fc3ec7bdd5feae}{cantidadCaracteres}}\ =\ 0;}
+\DoxyCodeLine{00073\ \ \ \}}
+\DoxyCodeLine{00074\ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{security_8h_a441534208eb0dce8b2b7db1ee706080c}{loopS}}()\{}
+\DoxyCodeLine{00080\ \ \ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}.setCursor(\mbox{\hyperlink{security_8h_aacb6104d043c4b96b8fc3ec7bdd5feae}{cantidadCaracteres}},\ 1);}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{char}\ key\ =\ \mbox{\hyperlink{variables_8h_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe}{keypad}}.getKey();}
+\DoxyCodeLine{00082\ \ \ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}.cursor();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordflow}{if}(!key)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \mbox{\hyperlink{variables_8h_af05ce2d503a38201374645796e06bbfa}{taskTimeOut30k}}.Stop();}
+\DoxyCodeLine{00087\ \ \ \mbox{\hyperlink{variables_8h_af05ce2d503a38201374645796e06bbfa}{taskTimeOut30k}}.Start();}
+\DoxyCodeLine{00088\ \ \ \textcolor{comment}{//Resibimos\ caracter\ ingresado}}
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{security_8h_aacb6104d043c4b96b8fc3ec7bdd5feae}{cantidadCaracteres}}\ <\ 5)}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{security_8h_a8423150d4bbed1353694fcda6f39d548}{intentoActual}}[\mbox{\hyperlink{security_8h_aacb6104d043c4b96b8fc3ec7bdd5feae}{cantidadCaracteres}}]\ =\ key;}
+\DoxyCodeLine{00091\ \ \ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}.print(\textcolor{stringliteral}{"{}*"{}});}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordflow}{if}(strcmp(\mbox{\hyperlink{security_8h_a8423150d4bbed1353694fcda6f39d548}{intentoActual}},\ \mbox{\hyperlink{security_8h_a4848fce409016cdcb4688dce04443726}{password}})\ ==\ 0)\{}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{security_8h_a514fb85a18adce0433a16db92539fffc}{runRightPass}}();}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00096\ \ \ \}\textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{security_8h_aacb6104d043c4b96b8fc3ec7bdd5feae}{cantidadCaracteres}}+1\ ==\ 8)}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{security_8h_a6391f40e9a91ac89de2a230b88d4fb92}{runWrongPass}}();}
+\DoxyCodeLine{00098\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{security_8h_aacb6104d043c4b96b8fc3ec7bdd5feae}{cantidadCaracteres}}++;}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{security_8h_ab7c9a87739679053f1cc8d9924997e88}{again}}()\{}
+\DoxyCodeLine{00105\ \ \ digitalWrite(\mbox{\hyperlink{variables_8h_a223c77983bbc99c4cdedb45552d47e5d}{ledB}},\ LOW);}
+\DoxyCodeLine{00106\ \ \ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}.clear();}
+\DoxyCodeLine{00107\ \ \ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}.print(\textcolor{stringliteral}{"{}Ingresa\ otra\ vez"{}});\ \ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \mbox{\hyperlink{security_8h_a04cecf6708b77deed43900afdf14e8d9}{tries}}++;}
+\DoxyCodeLine{00109\ \ \ \mbox{\hyperlink{variables_8h_ac4de90a9d18b3ce9838fe041a20a7db5}{taskLoop}}.Start();\ }
+\DoxyCodeLine{00110\ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

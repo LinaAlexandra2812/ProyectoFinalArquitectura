@@ -1,0 +1,176 @@
+\doxysection{variables.\+h}
+\hypertarget{variables_8h_source}{}\label{variables_8h_source}\mbox{\hyperlink{variables_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ VARIABLES\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ VARIABLES\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <Keypad.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <LiquidMenu.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}DHT.h"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}AsyncTaskLib.h"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}StateMachineLib.h"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_buzzer_8h}{Buzzer.h}}"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ ledR\ 9\ }}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ ledG\ 8\ }}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ ledB\ 7\ }}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ rs\ 12\ }}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ en\ 11\ \ }}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ d4\ 5\ \ \ }}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ d5\ 4\ \ \ }}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ d6\ 3\ \ \ }}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ d7\ 2\ \ \ }}
+\DoxyCodeLine{00033\ \textcolor{comment}{//Configuracion\ pines\ sensores}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ photocellPin\ A1\ }}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ hallPin\ A0\ }}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ dhtPin\ 10\ }}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ buttonPin\ 6\ }}
+\DoxyCodeLine{00039\ \textcolor{comment}{//Configuracion\ sensores}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ DHTTYPE\ DHT22\ }}
+\DoxyCodeLine{00042\ DHT\ \mbox{\hyperlink{variables_8h_a3cacb976b4b0b366d9852f7ecdaad403}{dht}}(\mbox{\hyperlink{variables_8h_a9426ad0ea7464d955c27f7ec125329f6}{dhtPin}},\ \mbox{\hyperlink{variables_8h_a2c509dba12bba99883a5be9341b7a0c5}{DHTTYPE}});\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//Configuracion\ liquidcrystal}}
+\DoxyCodeLine{00045\ LiquidCrystal\ \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}}(\mbox{\hyperlink{variables_8h_a46da3ff1e495329b241e5830b70bcb80}{rs}},\ \mbox{\hyperlink{variables_8h_ade40deee5d8bc24ce010df887afdfe38}{en}},\ \mbox{\hyperlink{variables_8h_a307fa7a9ebf3c98ea1ee9815f096ef0f}{d4}},\ \mbox{\hyperlink{variables_8h_ad5160e403b3418df0e8d4ef2c4b0aa2b}{d5}},\ \mbox{\hyperlink{variables_8h_a70aef75046a2ffba1914261004ed8395}{d6}},\ \mbox{\hyperlink{variables_8h_a2f9ad955dffae51f2c3957f1b9f75e17}{d7}});\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//COnfiguracion\ maquina\ de\ estados|}}
+\DoxyCodeLine{00048\ \mbox{\hyperlink{class_state_machine}{StateMachine}}\ \mbox{\hyperlink{variables_8h_a029729f179caaaef8e8cae07ebfb44c8}{stateMachine}}(6,\ 13);\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{//Configuracion\ variables\ keypad}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ ROWS\ 4\ }}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ COLS\ 4\ }}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{variables_8h_a856e873a1d14012d57ddb813c4a1e40a}{keys}}[\mbox{\hyperlink{variables_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}][\mbox{\hyperlink{variables_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}]\ =\ \{}
+\DoxyCodeLine{00057\ \ \ \{\textcolor{charliteral}{'1'},\ \textcolor{charliteral}{'2'},\ \textcolor{charliteral}{'3'},\ \textcolor{charliteral}{'A'}\},}
+\DoxyCodeLine{00058\ \ \ \{\textcolor{charliteral}{'4'},\ \textcolor{charliteral}{'5'},\ \textcolor{charliteral}{'6'},\ \textcolor{charliteral}{'B'}\},}
+\DoxyCodeLine{00059\ \ \ \{\textcolor{charliteral}{'7'},\ \textcolor{charliteral}{'8'},\ \textcolor{charliteral}{'9'},\ \textcolor{charliteral}{'C'}\},}
+\DoxyCodeLine{00060\ \ \ \{\textcolor{charliteral}{'*'},\ \textcolor{charliteral}{'0'},\ \textcolor{charliteral}{'\#'},\ \textcolor{charliteral}{'D'}\}}
+\DoxyCodeLine{00061\ \};\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{byte}\ \mbox{\hyperlink{variables_8h_a6d6753e0ae098b31e2f84d4024e361cf}{rowPins}}[\mbox{\hyperlink{variables_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}]\ =\ \{22,\ 24,\ 26,\ 28\};\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{byte}\ \mbox{\hyperlink{variables_8h_aa9fece7b062124080e4b2976f9a8b675}{colPins}}[\mbox{\hyperlink{variables_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}]\ =\ \{30,\ 32,\ 34,\ 36\};\ }
+\DoxyCodeLine{00067\ Keypad\ \mbox{\hyperlink{variables_8h_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe}{keypad}}\ =\ Keypad(\ makeKeymap(\mbox{\hyperlink{variables_8h_a856e873a1d14012d57ddb813c4a1e40a}{keys}}),\ \mbox{\hyperlink{variables_8h_a6d6753e0ae098b31e2f84d4024e361cf}{rowPins}},\ \mbox{\hyperlink{variables_8h_aa9fece7b062124080e4b2976f9a8b675}{colPins}},\ \mbox{\hyperlink{variables_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}},\ \mbox{\hyperlink{variables_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}\ );\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090}{Input}}}
+\DoxyCodeLine{00070\ \{}
+\DoxyCodeLine{00071\ \ \ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090adeaae36b29147d2aaec23944a090d927}{correctPassword}}\ =\ 0,\ }
+\DoxyCodeLine{00072\ \ \ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a77edd71b248cc2833a2e0f297658ca58}{button}}\ =\ 1,\ \ }
+\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090ac810e7931052713fbebc187b3c1dc469}{timeOut7}}\ =\ 2,\ }
+\DoxyCodeLine{00074\ \ \ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090ae477926fd69666b32c16b6c138843a95}{timeOut10}}\ =\ 3,\ }
+\DoxyCodeLine{00075\ \ \ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a0c99996479dcbf3da1285900f73faf5b}{timeOut3}}\ =\ 4,\ }
+\DoxyCodeLine{00076\ \ \ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a49b06ef78d0e37af8061c621322a1e95}{timeOut4}}\ =\ 5,\ }
+\DoxyCodeLine{00077\ \ \ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090abc1860354eee45f5d31cf39c5dbbf769}{tempHigh}}\ =\ 6,\ }
+\DoxyCodeLine{00078\ \ \ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090aa9e0503900a1d3ebcede5154ee6a652d}{lightHigh}}\ =\ 7,\ }
+\DoxyCodeLine{00079\ \ \ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a18034c393fe67853bea83af8c3de816c}{hallHigh}}\ =\ 8,\ \ }
+\DoxyCodeLine{00080\ \ \ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a71a5d9d83e1255cbc76b3f968d6c2195}{sysBlock}}\ =\ 9,\ \ }
+\DoxyCodeLine{00081\ \ \ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a91ff93d0f5131b745bca23444193f4c4}{unknow}}\ =\ 10\ \ }
+\DoxyCodeLine{00082\ \};\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State}}\ \{}
+\DoxyCodeLine{00085\ \ \ \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8a0e97c69c73117f6c0109b2d7d1d9cedc}{start}}\ =\ 0,\ }
+\DoxyCodeLine{00086\ \ \ \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8ab24e4a61d95cef52b430c0fabaa13834}{config}}\ =\ 1,\ }
+\DoxyCodeLine{00087\ \ \ \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8ad38a4f3645d9ea91edf55d4e814012a9}{monitorAmbiental}}\ =\ 2,\ }
+\DoxyCodeLine{00088\ \ \ \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8a20ecd9cf41d5b8fe828ac7c4f2ca6a82}{monitorEvents}}\ =\ 3,\ }
+\DoxyCodeLine{00089\ \ \ \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8ac456c55fe37a0e93478bb2aa4cef0284}{alarm}}\ =\ 4,\ }
+\DoxyCodeLine{00090\ \ \ \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8a879965b9f596d9c46dc07872284703f1}{block}}\ =5\ }
+\DoxyCodeLine{00091\ \};\ }
+\DoxyCodeLine{00093\ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090}{Input}}\ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}};\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}\ =\ 0;\ }
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{variables_8h_a60e797ee57dc693aa833f5a210f2ff58}{maxTemp}}\ =\ 40;\ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{variables_8h_afb162ac6533952808e31e5ade163e2e5}{minTemp}}\ =\ 0;\ }
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{variables_8h_a9c26e1bc1abf948252ed8afa39a4a1ea}{maxLight}}=\ 300;\ }
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{variables_8h_a23cd2cf20d8882f78ef667c464270729}{minLight}}=\ 50;\ }
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{variables_8h_a12d8105d32b3ac5d374959d193dcfe47}{maxHall}}\ =\ 1000;\ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{variables_8h_a441534208eb0dce8b2b7db1ee706080c}{loopS}}();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{variables_8h_ab7c9a87739679053f1cc8d9924997e88}{again}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00122\ AsyncTask\ \mbox{\hyperlink{variables_8h_ac4de90a9d18b3ce9838fe041a20a7db5}{taskLoop}}(1,\ \textcolor{keyword}{true},\ \mbox{\hyperlink{variables_8h_a441534208eb0dce8b2b7db1ee706080c}{loopS}});}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00127\ AsyncTask\ \mbox{\hyperlink{variables_8h_ad2cd56e5615efe0c1dfd42c9147f12b5}{taskAgain}}(2000,\ \textcolor{keyword}{false},\ \mbox{\hyperlink{variables_8h_ab7c9a87739679053f1cc8d9924997e88}{again}});}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00132\ AsyncTask\ \mbox{\hyperlink{variables_8h_ad9768b93be7a56d5f1063d04dc00adf8}{taskStopLoop}}(1,\ \textcolor{keyword}{false},\ []\ ()\ \{\ \mbox{\hyperlink{variables_8h_ac4de90a9d18b3ce9838fe041a20a7db5}{taskLoop}}.Stop();\}\ );}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{variables_8h_a3a53f25e77fa05335873d543726c365d}{printMonitorAmbiental}}();}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00148\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{variables_8h_ac01b58ae65cd3d6bacbd47bbac55daf1}{printMonitorHall}}();}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00154\ AsyncTask\ \mbox{\hyperlink{variables_8h_a4dce425fca539eb8d4a44eaf75c1f8d4}{taskLoopMonitorAmbiental}}(300,\ \textcolor{keyword}{true},\ \mbox{\hyperlink{variables_8h_a3a53f25e77fa05335873d543726c365d}{printMonitorAmbiental}});}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00159\ AsyncTask\ \mbox{\hyperlink{variables_8h_a18675d8af22352ffbf816a4bb982dbf0}{taskLoopMonitorHall}}(300,\ \textcolor{keyword}{true},\ \mbox{\hyperlink{variables_8h_ac01b58ae65cd3d6bacbd47bbac55daf1}{printMonitorHall}});}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00171\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{variables_8h_aa0716a7fb0351e5ac48f196cf972e8c4}{loopLiquidMenu}}();}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00176\ AsyncTask\ \mbox{\hyperlink{variables_8h_af718b5349d1c98ab3552c179320676a7}{taskLoopMenu}}(100,\ \textcolor{keyword}{true},\ \mbox{\hyperlink{variables_8h_aa0716a7fb0351e5ac48f196cf972e8c4}{loopLiquidMenu}});\ }
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00185\ AsyncTask\ \mbox{\hyperlink{variables_8h_a04fc02723a11dff57e968349ddae8a18}{taskMelodyAlarm}}(1,\ \textcolor{keyword}{true},\ \mbox{\hyperlink{_buzzer_8h_a21ab6a4121a04f81c203ac01bc0c1af2}{playNextNote}});}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00190\ AsyncTask\ \mbox{\hyperlink{variables_8h_a81d3b1eb10eba602f0f2d27932e38b6c}{taskMelodyBlock}}(1,\ \textcolor{keyword}{true},\ \mbox{\hyperlink{_buzzer_8h_a21ab6a4121a04f81c203ac01bc0c1af2}{playNextNote}});}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00199\ AsyncTask\ \mbox{\hyperlink{variables_8h_a2297264e34e8a31ab2bd68d48b4734b4}{taskOnLedR}}(500,\ \textcolor{keyword}{true},\ []()\{}
+\DoxyCodeLine{00200\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}==\ 0)}
+\DoxyCodeLine{00201\ \ \ \ \ digitalWrite(\mbox{\hyperlink{variables_8h_a4845bb5aed44e522c58d987e9fc75655}{ledR}},HIGH);}
+\DoxyCodeLine{00202\ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00203\ \ \ \ \ digitalWrite(\mbox{\hyperlink{variables_8h_a4845bb5aed44e522c58d987e9fc75655}{ledR}},LOW);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}\ =\ \mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}\ ==\ 0\ ?\ 1:0;}
+\DoxyCodeLine{00206\ \ \ }
+\DoxyCodeLine{00207\ \});}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00212\ AsyncTask\ \mbox{\hyperlink{variables_8h_a8e648066a858737431aae31d2e6a8d38}{taskOnLedB}}(800,\ \textcolor{keyword}{true},\ []()\{}
+\DoxyCodeLine{00213\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}==\ 0)}
+\DoxyCodeLine{00214\ \ \ \ \ digitalWrite(\mbox{\hyperlink{variables_8h_a223c77983bbc99c4cdedb45552d47e5d}{ledB}},HIGH);}
+\DoxyCodeLine{00215\ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00216\ \ \ \ \ digitalWrite(\mbox{\hyperlink{variables_8h_a223c77983bbc99c4cdedb45552d47e5d}{ledB}},LOW);}
+\DoxyCodeLine{00217\ \ \ \mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}\ =\ \mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}\ ==\ 0\ ?\ 1:0;}
+\DoxyCodeLine{00218\ \});}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00226\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{variables_8h_a6391f40e9a91ac89de2a230b88d4fb92}{runWrongPass}}();}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00232\ AsyncTask\ \mbox{\hyperlink{variables_8h_a5cd401b5d2c0a30f342f2d842171e56b}{taskCorrect}}(2000,\ \textcolor{keyword}{false},\ []()\{\ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}\ =\ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090adeaae36b29147d2aaec23944a090d927}{Input::correctPassword}};\});}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00238\ AsyncTask\ \mbox{\hyperlink{variables_8h_aa83811365d7995764e95327aeae43a8a}{taskSysBlock}}(10,\ \textcolor{keyword}{false},\ []\ ()\ \{\mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}\ =\ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a71a5d9d83e1255cbc76b3f968d6c2195}{Input::sysBlock}};\ \ \});}
+\DoxyCodeLine{00243\ AsyncTask\ \mbox{\hyperlink{variables_8h_abe6245211224253e24a110490ffdaa1a}{taskTimeOut7}}(7000,\ \textcolor{keyword}{false},\ []()\{\mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}\ =\ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090ac810e7931052713fbebc187b3c1dc469}{Input::timeOut7}};\});}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00250\ AsyncTask\ \mbox{\hyperlink{variables_8h_a22e20b2214a240320ae408cb30921877}{taskTimeOut3}}(3000,\ \textcolor{keyword}{false},\ []()\{\mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}\ =\ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a0c99996479dcbf3da1285900f73faf5b}{Input::timeOut3}};\});}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00257\ AsyncTask\ \mbox{\hyperlink{variables_8h_a7d211f4b05f883ff1926d8b11d08554b}{taskTimeOut4}}(4000,\ \textcolor{keyword}{false},\ []()\{\mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}\ =\ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a49b06ef78d0e37af8061c621322a1e95}{Input::timeOut4}};\});}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00263\ AsyncTask\ \mbox{\hyperlink{variables_8h_af05ce2d503a38201374645796e06bbfa}{taskTimeOut30k}}(5000,\ \textcolor{keyword}{false},\ []()\{\mbox{\hyperlink{variables_8h_a6391f40e9a91ac89de2a230b88d4fb92}{runWrongPass}}();\});}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00270\ AsyncTask\ \mbox{\hyperlink{variables_8h_a9341a544aab2e0b3b626b9f9a109effa}{taskTimeOut10}}(10000,\ \textcolor{keyword}{false},\ []()\ \{\ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}\ =\ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090ae477926fd69666b32c16b6c138843a95}{Input::timeOut10}};\ \});}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00279\ AsyncTask\ \mbox{\hyperlink{variables_8h_a2134778a24ff8230d2663a252d3ac009}{taskButton}}(10,\ \textcolor{keyword}{false},\ []\ ()\ \{\ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}\ =\ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a77edd71b248cc2833a2e0f297658ca58}{Input::button}};\});}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00286\ AsyncTask\ \mbox{\hyperlink{variables_8h_aa4244768356cdaa930aa1a52e6d5016f}{taskTempHigh}}(5,\ \textcolor{keyword}{false},\ []()\{\ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}\ =\ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090abc1860354eee45f5d31cf39c5dbbf769}{Input::tempHigh}};\});}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00293\ AsyncTask\ \mbox{\hyperlink{variables_8h_ad5d5b8db307664190e579a3f83c359c2}{taskLightHigh}}(5,\ \textcolor{keyword}{false},\ []()\{\ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}\ =\ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090aa9e0503900a1d3ebcede5154ee6a652d}{Input::lightHigh}};\});}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00300\ AsyncTask\ \mbox{\hyperlink{variables_8h_a929bce38598dadae32011b2290c9af94}{taskHallHigh}}(5,\ \textcolor{keyword}{false},\ []()\{\ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}\ =\ \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a18034c393fe67853bea83af8c3de816c}{Input::hallHigh}};\});}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00308\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{variables_8h_ab3e95297e8cbbffabbde5b777fc464e1}{updateTask}}()\{}
+\DoxyCodeLine{00309\ \ \ \mbox{\hyperlink{variables_8h_a9341a544aab2e0b3b626b9f9a109effa}{taskTimeOut10}}.Update();}
+\DoxyCodeLine{00310\ \ \ \mbox{\hyperlink{variables_8h_ac4de90a9d18b3ce9838fe041a20a7db5}{taskLoop}}.Update();}
+\DoxyCodeLine{00311\ \ \ \mbox{\hyperlink{variables_8h_ad2cd56e5615efe0c1dfd42c9147f12b5}{taskAgain}}.Update();}
+\DoxyCodeLine{00312\ \ \ \mbox{\hyperlink{variables_8h_a5cd401b5d2c0a30f342f2d842171e56b}{taskCorrect}}.Update();}
+\DoxyCodeLine{00313\ \ \ \mbox{\hyperlink{variables_8h_ad9768b93be7a56d5f1063d04dc00adf8}{taskStopLoop}}.Update();}
+\DoxyCodeLine{00314\ \ \ \mbox{\hyperlink{variables_8h_aa83811365d7995764e95327aeae43a8a}{taskSysBlock}}.Update();}
+\DoxyCodeLine{00315\ \ \ \mbox{\hyperlink{variables_8h_a4dce425fca539eb8d4a44eaf75c1f8d4}{taskLoopMonitorAmbiental}}.Update();}
+\DoxyCodeLine{00316\ \ \ \mbox{\hyperlink{variables_8h_abe6245211224253e24a110490ffdaa1a}{taskTimeOut7}}.Update();}
+\DoxyCodeLine{00317\ \ \ \mbox{\hyperlink{variables_8h_a22e20b2214a240320ae408cb30921877}{taskTimeOut3}}.Update();}
+\DoxyCodeLine{00318\ \ \ \mbox{\hyperlink{variables_8h_a2134778a24ff8230d2663a252d3ac009}{taskButton}}.Update();}
+\DoxyCodeLine{00319\ \ \ \mbox{\hyperlink{variables_8h_a18675d8af22352ffbf816a4bb982dbf0}{taskLoopMonitorHall}}.Update();}
+\DoxyCodeLine{00320\ \ \ \mbox{\hyperlink{variables_8h_a7d211f4b05f883ff1926d8b11d08554b}{taskTimeOut4}}.Update();}
+\DoxyCodeLine{00321\ \ \ \mbox{\hyperlink{variables_8h_a2134778a24ff8230d2663a252d3ac009}{taskButton}}.Update();}
+\DoxyCodeLine{00322\ \ \ \mbox{\hyperlink{variables_8h_aa4244768356cdaa930aa1a52e6d5016f}{taskTempHigh}}.Update();}
+\DoxyCodeLine{00323\ \ \ \mbox{\hyperlink{variables_8h_ad5d5b8db307664190e579a3f83c359c2}{taskLightHigh}}.Update();}
+\DoxyCodeLine{00324\ \ \ \mbox{\hyperlink{variables_8h_a929bce38598dadae32011b2290c9af94}{taskHallHigh}}.Update();}
+\DoxyCodeLine{00325\ \ \ \mbox{\hyperlink{variables_8h_af718b5349d1c98ab3552c179320676a7}{taskLoopMenu}}.Update();}
+\DoxyCodeLine{00326\ \ \ \mbox{\hyperlink{variables_8h_a04fc02723a11dff57e968349ddae8a18}{taskMelodyAlarm}}.Update();}
+\DoxyCodeLine{00327\ \ \ \mbox{\hyperlink{variables_8h_a2297264e34e8a31ab2bd68d48b4734b4}{taskOnLedR}}.Update();}
+\DoxyCodeLine{00328\ \ \ \mbox{\hyperlink{variables_8h_a81d3b1eb10eba602f0f2d27932e38b6c}{taskMelodyBlock}}.Update();}
+\DoxyCodeLine{00329\ \ \ \mbox{\hyperlink{variables_8h_af05ce2d503a38201374645796e06bbfa}{taskTimeOut30k}}.Update();}
+\DoxyCodeLine{00330\ \ \ \mbox{\hyperlink{variables_8h_a8e648066a858737431aae31d2e6a8d38}{taskOnLedB}}.Update();}
+\DoxyCodeLine{00331\ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

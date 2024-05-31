@@ -1,0 +1,677 @@
+\doxysection{variables.\+h File Reference}
+\hypertarget{variables_8h}{}\label{variables_8h}\index{variables.h@{variables.h}}
+
+
+Archivo para declarar variables generales del proyecto Aqui se encuentran la configuracion de los pines analogos y virtuales, junto con a las entradas analogas.  
+
+
+{\ttfamily \#include $<$Keypad.\+h$>$}\newline
+{\ttfamily \#include $<$Liquid\+Menu.\+h$>$}\newline
+{\ttfamily \#include "{}DHT.\+h"{}}\newline
+{\ttfamily \#include "{}Async\+Task\+Lib.\+h"{}}\newline
+{\ttfamily \#include "{}State\+Machine\+Lib.\+h"{}}\newline
+{\ttfamily \#include "{}Buzzer.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{variables_8h_a4845bb5aed44e522c58d987e9fc75655}{ledR}}~9
+\item 
+\#define \mbox{\hyperlink{variables_8h_a34db818eb5d4f93a3b601bd9fd965ade}{ledG}}~8
+\item 
+\#define \mbox{\hyperlink{variables_8h_a223c77983bbc99c4cdedb45552d47e5d}{ledB}}~7
+\item 
+\#define \mbox{\hyperlink{variables_8h_a46da3ff1e495329b241e5830b70bcb80}{rs}}~12
+\item 
+\#define \mbox{\hyperlink{variables_8h_ade40deee5d8bc24ce010df887afdfe38}{en}}~11
+\item 
+\#define \mbox{\hyperlink{variables_8h_a307fa7a9ebf3c98ea1ee9815f096ef0f}{d4}}~5
+\item 
+\#define \mbox{\hyperlink{variables_8h_ad5160e403b3418df0e8d4ef2c4b0aa2b}{d5}}~4
+\item 
+\#define \mbox{\hyperlink{variables_8h_a70aef75046a2ffba1914261004ed8395}{d6}}~3
+\item 
+\#define \mbox{\hyperlink{variables_8h_a2f9ad955dffae51f2c3957f1b9f75e17}{d7}}~2
+\item 
+\#define \mbox{\hyperlink{variables_8h_a66eaa996cd4b7388aa93e3085ffbb5b2}{photocell\+Pin}}~A1
+\item 
+\#define \mbox{\hyperlink{variables_8h_af5311b37d27d5b6a5961e139b77ad32a}{hall\+Pin}}~A0
+\item 
+\#define \mbox{\hyperlink{variables_8h_a9426ad0ea7464d955c27f7ec125329f6}{dht\+Pin}}~10
+\item 
+\#define \mbox{\hyperlink{variables_8h_a352fec4313db424629486e83da01de55}{button\+Pin}}~6
+\item 
+\#define \mbox{\hyperlink{variables_8h_a2c509dba12bba99883a5be9341b7a0c5}{DHTTYPE}}~DHT22
+\item 
+\#define \mbox{\hyperlink{variables_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}~4
+\item 
+\#define \mbox{\hyperlink{variables_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}~4
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090}{Input}} \{ \newline
+\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090adeaae36b29147d2aaec23944a090d927}{correct\+Password}} = 0
+, \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a77edd71b248cc2833a2e0f297658ca58}{button}} = 1
+, \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090ac810e7931052713fbebc187b3c1dc469}{time\+Out7}} = 2
+, \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090ae477926fd69666b32c16b6c138843a95}{time\+Out10}} = 3
+, \newline
+\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a0c99996479dcbf3da1285900f73faf5b}{time\+Out3}} = 4
+, \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a49b06ef78d0e37af8061c621322a1e95}{time\+Out4}} = 5
+, \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090abc1860354eee45f5d31cf39c5dbbf769}{temp\+High}} = 6
+, \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090aa9e0503900a1d3ebcede5154ee6a652d}{light\+High}} = 7
+, \newline
+\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a18034c393fe67853bea83af8c3de816c}{hall\+High}} = 8
+, \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a71a5d9d83e1255cbc76b3f968d6c2195}{sys\+Block}} = 9
+, \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a91ff93d0f5131b745bca23444193f4c4}{unknow}} = 10
+ \}
+\item 
+enum \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State}} \{ \newline
+\mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8a0e97c69c73117f6c0109b2d7d1d9cedc}{start}} = 0
+, \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8ab24e4a61d95cef52b430c0fabaa13834}{config}} = 1
+, \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8ad38a4f3645d9ea91edf55d4e814012a9}{monitor\+Ambiental}} = 2
+, \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8a20ecd9cf41d5b8fe828ac7c4f2ca6a82}{monitor\+Events}} = 3
+, \newline
+\mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8ac456c55fe37a0e93478bb2aa4cef0284}{alarm}} = 4
+, \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8a879965b9f596d9c46dc07872284703f1}{block}} =5
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+DHT \mbox{\hyperlink{variables_8h_a3cacb976b4b0b366d9852f7ecdaad403}{dht}} (\mbox{\hyperlink{variables_8h_a9426ad0ea7464d955c27f7ec125329f6}{dht\+Pin}}, \mbox{\hyperlink{variables_8h_a2c509dba12bba99883a5be9341b7a0c5}{DHTTYPE}})
+\item 
+Liquid\+Crystal \mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}} (\mbox{\hyperlink{variables_8h_a46da3ff1e495329b241e5830b70bcb80}{rs}}, \mbox{\hyperlink{variables_8h_ade40deee5d8bc24ce010df887afdfe38}{en}}, \mbox{\hyperlink{variables_8h_a307fa7a9ebf3c98ea1ee9815f096ef0f}{d4}}, \mbox{\hyperlink{variables_8h_ad5160e403b3418df0e8d4ef2c4b0aa2b}{d5}}, \mbox{\hyperlink{variables_8h_a70aef75046a2ffba1914261004ed8395}{d6}}, \mbox{\hyperlink{variables_8h_a2f9ad955dffae51f2c3957f1b9f75e17}{d7}})
+\item 
+\mbox{\hyperlink{class_state_machine}{State\+Machine}} \mbox{\hyperlink{variables_8h_a029729f179caaaef8e8cae07ebfb44c8}{state\+Machine}} (6, 13)
+\item 
+void \mbox{\hyperlink{variables_8h_a441534208eb0dce8b2b7db1ee706080c}{loopS}} ()
+\begin{DoxyCompactList}\small\item\em Función de bucle principal (loopS). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{variables_8h_ab7c9a87739679053f1cc8d9924997e88}{again}} ()
+\begin{DoxyCompactList}\small\item\em Función de manejo de eventos (again). \end{DoxyCompactList}\item 
+Async\+Task \mbox{\hyperlink{variables_8h_ac4de90a9d18b3ce9838fe041a20a7db5}{task\+Loop}} (1, true, \mbox{\hyperlink{security_8h_a441534208eb0dce8b2b7db1ee706080c}{loopS}})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_ad2cd56e5615efe0c1dfd42c9147f12b5}{task\+Again}} (2000, false, \mbox{\hyperlink{security_8h_ab7c9a87739679053f1cc8d9924997e88}{again}})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_ad9768b93be7a56d5f1063d04dc00adf8}{task\+Stop\+Loop}} (1, false, \mbox{[}$\,$\mbox{]}() \{ task\+Loop.\+Stop();\})
+\item 
+void \mbox{\hyperlink{variables_8h_a3a53f25e77fa05335873d543726c365d}{print\+Monitor\+Ambiental}} ()
+\begin{DoxyCompactList}\small\item\em Función para mostrar el monitor ambiental. Lee los valores de temperatura, humedad e intensidad lumínica para luego mostrarlos. Si la temperatura, humedad o intensidad lumínica superan el umbral, se lanza una tarea. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{variables_8h_ac01b58ae65cd3d6bacbd47bbac55daf1}{print\+Monitor\+Hall}} ()
+\begin{DoxyCompactList}\small\item\em Función para mostrar el monitor magnético. Lee los valores del sensor hall para luego mostrarlos en pantalla. Si el valor supera el umbral, se lanza una tarea. \end{DoxyCompactList}\item 
+Async\+Task \mbox{\hyperlink{variables_8h_a4dce425fca539eb8d4a44eaf75c1f8d4}{task\+Loop\+Monitor\+Ambiental}} (300, true, \mbox{\hyperlink{monitores_8h_a3a53f25e77fa05335873d543726c365d}{print\+Monitor\+Ambiental}})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_a18675d8af22352ffbf816a4bb982dbf0}{task\+Loop\+Monitor\+Hall}} (300, true, \mbox{\hyperlink{monitores_8h_ac01b58ae65cd3d6bacbd47bbac55daf1}{print\+Monitor\+Hall}})
+\item 
+void \mbox{\hyperlink{variables_8h_aa0716a7fb0351e5ac48f196cf972e8c4}{loop\+Liquid\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Tareas de Liquid\+Menu. \end{DoxyCompactList}\item 
+Async\+Task \mbox{\hyperlink{variables_8h_af718b5349d1c98ab3552c179320676a7}{task\+Loop\+Menu}} (100, true, \mbox{\hyperlink{menuconfig_8h_aa0716a7fb0351e5ac48f196cf972e8c4}{loop\+Liquid\+Menu}})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_a04fc02723a11dff57e968349ddae8a18}{task\+Melody\+Alarm}} (1, true, \mbox{\hyperlink{_buzzer_8h_a21ab6a4121a04f81c203ac01bc0c1af2}{play\+Next\+Note}})
+\begin{DoxyCompactList}\small\item\em Tareas de Buzzer. \end{DoxyCompactList}\item 
+Async\+Task \mbox{\hyperlink{variables_8h_a81d3b1eb10eba602f0f2d27932e38b6c}{task\+Melody\+Block}} (1, true, \mbox{\hyperlink{_buzzer_8h_a21ab6a4121a04f81c203ac01bc0c1af2}{play\+Next\+Note}})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_a2297264e34e8a31ab2bd68d48b4734b4}{task\+On\+LedR}} (500, true, \mbox{[}$\,$\mbox{]}()\{ if(\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}==0) digital\+Write(\mbox{\hyperlink{variables_8h_a4845bb5aed44e522c58d987e9fc75655}{ledR}}, HIGH);else digital\+Write(\mbox{\hyperlink{variables_8h_a4845bb5aed44e522c58d987e9fc75655}{ledR}}, LOW);\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}=\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}==0 ? 1\+:0;\})
+\begin{DoxyCompactList}\small\item\em Tareas de leds. \end{DoxyCompactList}\item 
+Async\+Task \mbox{\hyperlink{variables_8h_a8e648066a858737431aae31d2e6a8d38}{task\+On\+LedB}} (800, true, \mbox{[}$\,$\mbox{]}()\{ if(\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}==0) digital\+Write(\mbox{\hyperlink{variables_8h_a223c77983bbc99c4cdedb45552d47e5d}{ledB}}, HIGH);else digital\+Write(\mbox{\hyperlink{variables_8h_a223c77983bbc99c4cdedb45552d47e5d}{ledB}}, LOW);\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}=\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}==0 ? 1\+:0;\})
+\item 
+void \mbox{\hyperlink{variables_8h_a6391f40e9a91ac89de2a230b88d4fb92}{run\+Wrong\+Pass}} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta acciones cuando se ingresa una contraseña incorrecta. \end{DoxyCompactList}\item 
+Async\+Task \mbox{\hyperlink{variables_8h_a5cd401b5d2c0a30f342f2d842171e56b}{task\+Correct}} (2000, false, \mbox{[}$\,$\mbox{]}()\{ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090adeaae36b29147d2aaec23944a090d927}{Input\+::correct\+Password}};\})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_aa83811365d7995764e95327aeae43a8a}{task\+Sys\+Block}} (10, false, \mbox{[}$\,$\mbox{]}() \{\mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a71a5d9d83e1255cbc76b3f968d6c2195}{Input\+::sys\+Block}};\})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_abe6245211224253e24a110490ffdaa1a}{task\+Time\+Out7}} (7000, false, \mbox{[}$\,$\mbox{]}()\{\mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090ac810e7931052713fbebc187b3c1dc469}{Input\+::time\+Out7}};\})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_a22e20b2214a240320ae408cb30921877}{task\+Time\+Out3}} (3000, false, \mbox{[}$\,$\mbox{]}()\{\mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a0c99996479dcbf3da1285900f73faf5b}{Input\+::time\+Out3}};\})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_a7d211f4b05f883ff1926d8b11d08554b}{task\+Time\+Out4}} (4000, false, \mbox{[}$\,$\mbox{]}()\{\mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a49b06ef78d0e37af8061c621322a1e95}{Input\+::time\+Out4}};\})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_af05ce2d503a38201374645796e06bbfa}{task\+Time\+Out30k}} (5000, false, \mbox{[}$\,$\mbox{]}()\{\mbox{\hyperlink{security_8h_a6391f40e9a91ac89de2a230b88d4fb92}{run\+Wrong\+Pass}}();\})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_a9341a544aab2e0b3b626b9f9a109effa}{task\+Time\+Out10}} (10000, false, \mbox{[}$\,$\mbox{]}() \{ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090ae477926fd69666b32c16b6c138843a95}{Input\+::time\+Out10}};\})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_a2134778a24ff8230d2663a252d3ac009}{task\+Button}} (10, false, \mbox{[}$\,$\mbox{]}() \{ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a77edd71b248cc2833a2e0f297658ca58}{Input\+::button}};\})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_aa4244768356cdaa930aa1a52e6d5016f}{task\+Temp\+High}} (5, false, \mbox{[}$\,$\mbox{]}()\{ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090abc1860354eee45f5d31cf39c5dbbf769}{Input\+::temp\+High}};\})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_ad5d5b8db307664190e579a3f83c359c2}{task\+Light\+High}} (5, false, \mbox{[}$\,$\mbox{]}()\{ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090aa9e0503900a1d3ebcede5154ee6a652d}{Input\+::light\+High}};\})
+\item 
+Async\+Task \mbox{\hyperlink{variables_8h_a929bce38598dadae32011b2290c9af94}{task\+Hall\+High}} (5, false, \mbox{[}$\,$\mbox{]}()\{ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a18034c393fe67853bea83af8c3de816c}{Input\+::hall\+High}};\})
+\item 
+\Hypertarget{variables_8h_ab3e95297e8cbbffabbde5b777fc464e1}\label{variables_8h_ab3e95297e8cbbffabbde5b777fc464e1} 
+void {\bfseries update\+Task} ()
+\begin{DoxyCompactList}\small\item\em Funcion para Actualizar todas las tareas asincronicas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{variables_8h_a856e873a1d14012d57ddb813c4a1e40a}{keys}} \mbox{[}\mbox{\hyperlink{variables_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}\mbox{]}\mbox{[}\mbox{\hyperlink{variables_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}\mbox{]}
+\item 
+byte \mbox{\hyperlink{variables_8h_a6d6753e0ae098b31e2f84d4024e361cf}{row\+Pins}} \mbox{[}\mbox{\hyperlink{variables_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}\mbox{]} = \{22, 24, 26, 28\}
+\item 
+byte \mbox{\hyperlink{variables_8h_aa9fece7b062124080e4b2976f9a8b675}{col\+Pins}} \mbox{[}\mbox{\hyperlink{variables_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}\mbox{]} = \{30, 32, 34, 36\}
+\item 
+Keypad \mbox{\hyperlink{variables_8h_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe}{keypad}} = Keypad( make\+Keymap(\mbox{\hyperlink{variables_8h_a856e873a1d14012d57ddb813c4a1e40a}{keys}}), \mbox{\hyperlink{variables_8h_a6d6753e0ae098b31e2f84d4024e361cf}{row\+Pins}}, \mbox{\hyperlink{variables_8h_aa9fece7b062124080e4b2976f9a8b675}{col\+Pins}}, \mbox{\hyperlink{variables_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}, \mbox{\hyperlink{variables_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}} )
+\item 
+\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090}{Input}} \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}
+\item 
+int \mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}} = 0
+\item 
+int \mbox{\hyperlink{variables_8h_a60e797ee57dc693aa833f5a210f2ff58}{max\+Temp}} = 40
+\item 
+int \mbox{\hyperlink{variables_8h_afb162ac6533952808e31e5ade163e2e5}{min\+Temp}} = 0
+\item 
+int \mbox{\hyperlink{variables_8h_a9c26e1bc1abf948252ed8afa39a4a1ea}{max\+Light}} = 300
+\item 
+int \mbox{\hyperlink{variables_8h_a23cd2cf20d8882f78ef667c464270729}{min\+Light}} = 50
+\item 
+int \mbox{\hyperlink{variables_8h_a12d8105d32b3ac5d374959d193dcfe47}{max\+Hall}} = 1000
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Archivo para declarar variables generales del proyecto Aqui se encuentran la configuracion de los pines analogos y virtuales, junto con a las entradas analogas. 
+
+\begin{DoxyAuthor}{Author}
+Miguel Calambas Viv\+AS 
+
+Esteban Santiago Escandon Causaya 
+
+Lina Alexandra Diaz Ospona 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 @license MIT (u otra licencia si aplica) 
+\end{DoxyVersion}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{variables_8h_a352fec4313db424629486e83da01de55}\index{variables.h@{variables.h}!buttonPin@{buttonPin}}
+\index{buttonPin@{buttonPin}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{buttonPin}{buttonPin}}
+{\footnotesize\ttfamily \label{variables_8h_a352fec4313db424629486e83da01de55} 
+\#define button\+Pin~6}
+
+Entrada Virtual para el pin del boton \Hypertarget{variables_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}\index{variables.h@{variables.h}!COLS@{COLS}}
+\index{COLS@{COLS}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{COLS}{COLS}}
+{\footnotesize\ttfamily \label{variables_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48} 
+\#define COLS~4}
+
+Cantidad de columnas para la conexion con el keypad \Hypertarget{variables_8h_a307fa7a9ebf3c98ea1ee9815f096ef0f}\index{variables.h@{variables.h}!d4@{d4}}
+\index{d4@{d4}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{d4}{d4}}
+{\footnotesize\ttfamily \label{variables_8h_a307fa7a9ebf3c98ea1ee9815f096ef0f} 
+\#define d4~5}
+
+Numero de Pin de entrada d4 ~\newline
+ \Hypertarget{variables_8h_ad5160e403b3418df0e8d4ef2c4b0aa2b}\index{variables.h@{variables.h}!d5@{d5}}
+\index{d5@{d5}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{d5}{d5}}
+{\footnotesize\ttfamily \label{variables_8h_ad5160e403b3418df0e8d4ef2c4b0aa2b} 
+\#define d5~4}
+
+Numero de Pin de entrada d5 \Hypertarget{variables_8h_a70aef75046a2ffba1914261004ed8395}\index{variables.h@{variables.h}!d6@{d6}}
+\index{d6@{d6}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{d6}{d6}}
+{\footnotesize\ttfamily \label{variables_8h_a70aef75046a2ffba1914261004ed8395} 
+\#define d6~3}
+
+Numero de Pin de entrada d6 \Hypertarget{variables_8h_a2f9ad955dffae51f2c3957f1b9f75e17}\index{variables.h@{variables.h}!d7@{d7}}
+\index{d7@{d7}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{d7}{d7}}
+{\footnotesize\ttfamily \label{variables_8h_a2f9ad955dffae51f2c3957f1b9f75e17} 
+\#define d7~2}
+
+Numero de Pin de entrada d7 \Hypertarget{variables_8h_a9426ad0ea7464d955c27f7ec125329f6}\index{variables.h@{variables.h}!dhtPin@{dhtPin}}
+\index{dhtPin@{dhtPin}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{dhtPin}{dhtPin}}
+{\footnotesize\ttfamily \label{variables_8h_a9426ad0ea7464d955c27f7ec125329f6} 
+\#define dht\+Pin~10}
+
+Entrada Virutal de dht\+Pin \Hypertarget{variables_8h_a2c509dba12bba99883a5be9341b7a0c5}\index{variables.h@{variables.h}!DHTTYPE@{DHTTYPE}}
+\index{DHTTYPE@{DHTTYPE}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{DHTTYPE}{DHTTYPE}}
+{\footnotesize\ttfamily \label{variables_8h_a2c509dba12bba99883a5be9341b7a0c5} 
+\#define DHTTYPE~DHT22}
+
+Tipo de sensor DHT (cambiar según corresponda). \Hypertarget{variables_8h_ade40deee5d8bc24ce010df887afdfe38}\index{variables.h@{variables.h}!en@{en}}
+\index{en@{en}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{en}{en}}
+{\footnotesize\ttfamily \label{variables_8h_ade40deee5d8bc24ce010df887afdfe38} 
+\#define en~11}
+
+Numero de Pin de entrada en \Hypertarget{variables_8h_af5311b37d27d5b6a5961e139b77ad32a}\index{variables.h@{variables.h}!hallPin@{hallPin}}
+\index{hallPin@{hallPin}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{hallPin}{hallPin}}
+{\footnotesize\ttfamily \label{variables_8h_af5311b37d27d5b6a5961e139b77ad32a} 
+\#define hall\+Pin~A0}
+
+Entrada Analoga del sensor Hall \Hypertarget{variables_8h_a223c77983bbc99c4cdedb45552d47e5d}\index{variables.h@{variables.h}!ledB@{ledB}}
+\index{ledB@{ledB}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{ledB}{ledB}}
+{\footnotesize\ttfamily \label{variables_8h_a223c77983bbc99c4cdedb45552d47e5d} 
+\#define ledB~7}
+
+Numero de Pin de entrada led Azul \Hypertarget{variables_8h_a34db818eb5d4f93a3b601bd9fd965ade}\index{variables.h@{variables.h}!ledG@{ledG}}
+\index{ledG@{ledG}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{ledG}{ledG}}
+{\footnotesize\ttfamily \label{variables_8h_a34db818eb5d4f93a3b601bd9fd965ade} 
+\#define ledG~8}
+
+Numero de Pin de entrada led Verde \Hypertarget{variables_8h_a4845bb5aed44e522c58d987e9fc75655}\index{variables.h@{variables.h}!ledR@{ledR}}
+\index{ledR@{ledR}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{ledR}{ledR}}
+{\footnotesize\ttfamily \label{variables_8h_a4845bb5aed44e522c58d987e9fc75655} 
+\#define ledR~9}
+
+Numero de Pin de entrada led Rojo \Hypertarget{variables_8h_a66eaa996cd4b7388aa93e3085ffbb5b2}\index{variables.h@{variables.h}!photocellPin@{photocellPin}}
+\index{photocellPin@{photocellPin}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{photocellPin}{photocellPin}}
+{\footnotesize\ttfamily \label{variables_8h_a66eaa996cd4b7388aa93e3085ffbb5b2} 
+\#define photocell\+Pin~A1}
+
+Entrada Analoga del photosensor \Hypertarget{variables_8h_a3cfd3aa62338d12609f6d65bce97e9cd}\index{variables.h@{variables.h}!ROWS@{ROWS}}
+\index{ROWS@{ROWS}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{ROWS}{ROWS}}
+{\footnotesize\ttfamily \label{variables_8h_a3cfd3aa62338d12609f6d65bce97e9cd} 
+\#define ROWS~4}
+
+Cantidad de filas para la conexion con el keypad \Hypertarget{variables_8h_a46da3ff1e495329b241e5830b70bcb80}\index{variables.h@{variables.h}!rs@{rs}}
+\index{rs@{rs}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{rs}{rs}}
+{\footnotesize\ttfamily \label{variables_8h_a46da3ff1e495329b241e5830b70bcb80} 
+\#define rs~12}
+
+Numero de Pin de entrada Rs ~\newline
+ 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{variables_8h_a080a822f0093973313bd644e517a5090}\index{variables.h@{variables.h}!Input@{Input}}
+\index{Input@{Input}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{Input}{Input}}
+{\footnotesize\ttfamily \label{variables_8h_a080a822f0093973313bd644e517a5090} 
+enum \mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090}{Input}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{correctPassword@{correctPassword}!variables.h@{variables.h}}\index{variables.h@{variables.h}!correctPassword@{correctPassword}}}\Hypertarget{variables_8h_a080a822f0093973313bd644e517a5090adeaae36b29147d2aaec23944a090d927}\label{variables_8h_a080a822f0093973313bd644e517a5090} 
+correct\+Password&Input Para la transicion correct Password \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{button@{button}!variables.h@{variables.h}}\index{variables.h@{variables.h}!button@{button}}}\Hypertarget{variables_8h_a080a822f0093973313bd644e517a5090a77edd71b248cc2833a2e0f297658ca58}\label{variables_8h_a080a822f0093973313bd644e517a5090} 
+button&Input Para la transicion Button \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{timeOut7@{timeOut7}!variables.h@{variables.h}}\index{variables.h@{variables.h}!timeOut7@{timeOut7}}}\Hypertarget{variables_8h_a080a822f0093973313bd644e517a5090ac810e7931052713fbebc187b3c1dc469}\label{variables_8h_a080a822f0093973313bd644e517a5090} 
+time\+Out7&Input Para la transicion de 7 segundos \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{timeOut10@{timeOut10}!variables.h@{variables.h}}\index{variables.h@{variables.h}!timeOut10@{timeOut10}}}\Hypertarget{variables_8h_a080a822f0093973313bd644e517a5090ae477926fd69666b32c16b6c138843a95}\label{variables_8h_a080a822f0093973313bd644e517a5090} 
+time\+Out10&Input Para la transicion 10 segundos \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{timeOut3@{timeOut3}!variables.h@{variables.h}}\index{variables.h@{variables.h}!timeOut3@{timeOut3}}}\Hypertarget{variables_8h_a080a822f0093973313bd644e517a5090a0c99996479dcbf3da1285900f73faf5b}\label{variables_8h_a080a822f0093973313bd644e517a5090} 
+time\+Out3&Input Para la transicion 3 segundos \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{timeOut4@{timeOut4}!variables.h@{variables.h}}\index{variables.h@{variables.h}!timeOut4@{timeOut4}}}\Hypertarget{variables_8h_a080a822f0093973313bd644e517a5090a49b06ef78d0e37af8061c621322a1e95}\label{variables_8h_a080a822f0093973313bd644e517a5090} 
+time\+Out4&Input Para la transicion 4 segundos \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{tempHigh@{tempHigh}!variables.h@{variables.h}}\index{variables.h@{variables.h}!tempHigh@{tempHigh}}}\Hypertarget{variables_8h_a080a822f0093973313bd644e517a5090abc1860354eee45f5d31cf39c5dbbf769}\label{variables_8h_a080a822f0093973313bd644e517a5090} 
+temp\+High&Input Para la transicion de temperatura Alta \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{lightHigh@{lightHigh}!variables.h@{variables.h}}\index{variables.h@{variables.h}!lightHigh@{lightHigh}}}\Hypertarget{variables_8h_a080a822f0093973313bd644e517a5090aa9e0503900a1d3ebcede5154ee6a652d}\label{variables_8h_a080a822f0093973313bd644e517a5090} 
+light\+High&Input Para la transicion de luz alta \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{hallHigh@{hallHigh}!variables.h@{variables.h}}\index{variables.h@{variables.h}!hallHigh@{hallHigh}}}\Hypertarget{variables_8h_a080a822f0093973313bd644e517a5090a18034c393fe67853bea83af8c3de816c}\label{variables_8h_a080a822f0093973313bd644e517a5090} 
+hall\+High&Input Para la transicion de hall alta \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{sysBlock@{sysBlock}!variables.h@{variables.h}}\index{variables.h@{variables.h}!sysBlock@{sysBlock}}}\Hypertarget{variables_8h_a080a822f0093973313bd644e517a5090a71a5d9d83e1255cbc76b3f968d6c2195}\label{variables_8h_a080a822f0093973313bd644e517a5090} 
+sys\+Block&Input Para la transicion de sistema bloqueado \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{unknow@{unknow}!variables.h@{variables.h}}\index{variables.h@{variables.h}!unknow@{unknow}}}\Hypertarget{variables_8h_a080a822f0093973313bd644e517a5090a91ff93d0f5131b745bca23444193f4c4}\label{variables_8h_a080a822f0093973313bd644e517a5090} 
+unknow&Transicion ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8}\index{variables.h@{variables.h}!State@{State}}
+\index{State@{State}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily \label{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8} 
+enum \mbox{\hyperlink{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8}{State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{start@{start}!variables.h@{variables.h}}\index{variables.h@{variables.h}!start@{start}}}\Hypertarget{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8a0e97c69c73117f6c0109b2d7d1d9cedc}\label{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8} 
+start&Estado de inicio. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{config@{config}!variables.h@{variables.h}}\index{variables.h@{variables.h}!config@{config}}}\Hypertarget{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8ab24e4a61d95cef52b430c0fabaa13834}\label{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8} 
+config&Estado de configuración. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{monitorAmbiental@{monitorAmbiental}!variables.h@{variables.h}}\index{variables.h@{variables.h}!monitorAmbiental@{monitorAmbiental}}}\Hypertarget{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8ad38a4f3645d9ea91edf55d4e814012a9}\label{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8} 
+monitor\+Ambiental&Estado de monitoreo ambiental. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{monitorEvents@{monitorEvents}!variables.h@{variables.h}}\index{variables.h@{variables.h}!monitorEvents@{monitorEvents}}}\Hypertarget{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8a20ecd9cf41d5b8fe828ac7c4f2ca6a82}\label{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8} 
+monitor\+Events&Estado de monitoreo de eventos. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{alarm@{alarm}!variables.h@{variables.h}}\index{variables.h@{variables.h}!alarm@{alarm}}}\Hypertarget{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8ac456c55fe37a0e93478bb2aa4cef0284}\label{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8} 
+alarm&Estado de alarma. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{block@{block}!variables.h@{variables.h}}\index{variables.h@{variables.h}!block@{block}}}\Hypertarget{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8a879965b9f596d9c46dc07872284703f1}\label{variables_8h_a5d74787dedbc4e11c1ab15bf487e61f8} 
+block&Estado de bloqueo. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{variables_8h_ab7c9a87739679053f1cc8d9924997e88}\index{variables.h@{variables.h}!again@{again}}
+\index{again@{again}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{again()}{again()}}
+{\footnotesize\ttfamily \label{variables_8h_ab7c9a87739679053f1cc8d9924997e88} 
+void again (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Función de manejo de eventos (again). 
+
+Esta función se ejecuta después de un intervalo específico como parte de una tarea asincrónica. Sirve para volver intentar ingresar una contraseña.
+
+Función de manejo de eventos (again). \Hypertarget{variables_8h_a3cacb976b4b0b366d9852f7ecdaad403}\index{variables.h@{variables.h}!dht@{dht}}
+\index{dht@{dht}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{dht()}{dht()}}
+{\footnotesize\ttfamily \label{variables_8h_a3cacb976b4b0b366d9852f7ecdaad403} 
+DHT dht (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{variables_8h_a9426ad0ea7464d955c27f7ec125329f6}{dht\+Pin}}}]{}{, }\item[{\mbox{\hyperlink{variables_8h_a2c509dba12bba99883a5be9341b7a0c5}{DHTTYPE}}}]{}{}\end{DoxyParamCaption})}
+
+Objeto de tipo dht donde se confgura (puerto digital, tipo de sensor dht) \Hypertarget{variables_8h_a817f6545bce2c289122706845ed0894c}\index{variables.h@{variables.h}!lcd@{lcd}}
+\index{lcd@{lcd}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{lcd()}{lcd()}}
+{\footnotesize\ttfamily \label{variables_8h_a817f6545bce2c289122706845ed0894c} 
+Liquid\+Crystal lcd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{variables_8h_a46da3ff1e495329b241e5830b70bcb80}{rs}}}]{}{, }\item[{\mbox{\hyperlink{variables_8h_ade40deee5d8bc24ce010df887afdfe38}{en}}}]{}{, }\item[{\mbox{\hyperlink{variables_8h_a307fa7a9ebf3c98ea1ee9815f096ef0f}{d4}}}]{}{, }\item[{\mbox{\hyperlink{variables_8h_ad5160e403b3418df0e8d4ef2c4b0aa2b}{d5}}}]{}{, }\item[{\mbox{\hyperlink{variables_8h_a70aef75046a2ffba1914261004ed8395}{d6}}}]{}{, }\item[{\mbox{\hyperlink{variables_8h_a2f9ad955dffae51f2c3957f1b9f75e17}{d7}}}]{}{}\end{DoxyParamCaption})}
+
+Objeto lcd que guarda la configuracion de los pines del lcd 16x2 \Hypertarget{variables_8h_aa0716a7fb0351e5ac48f196cf972e8c4}\index{variables.h@{variables.h}!loopLiquidMenu@{loopLiquidMenu}}
+\index{loopLiquidMenu@{loopLiquidMenu}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{loopLiquidMenu()}{loopLiquidMenu()}}
+{\footnotesize\ttfamily \label{variables_8h_aa0716a7fb0351e5ac48f196cf972e8c4} 
+void loop\+Liquid\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Tareas de Liquid\+Menu. 
+
+Función de bucle principal para Liquid\+Menu.
+
+Esta función se ejecuta periódicamente como parte de una tarea asincrónica. Debe implementarse para manejar las operaciones relacionadas con Liquid\+Menu.
+
+Tareas de Liquid\+Menu. \Hypertarget{variables_8h_a441534208eb0dce8b2b7db1ee706080c}\index{variables.h@{variables.h}!loopS@{loopS}}
+\index{loopS@{loopS}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{loopS()}{loopS()}}
+{\footnotesize\ttfamily \label{variables_8h_a441534208eb0dce8b2b7db1ee706080c} 
+void loopS (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Función de bucle principal (loopS). 
+
+Esta función se ejecuta periódicamente como parte de una tarea asincrónica. Cada ciclo es necesario para la ejecucion de seguridad.
+
+Función de bucle principal (loopS). \Hypertarget{variables_8h_a3a53f25e77fa05335873d543726c365d}\index{variables.h@{variables.h}!printMonitorAmbiental@{printMonitorAmbiental}}
+\index{printMonitorAmbiental@{printMonitorAmbiental}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{printMonitorAmbiental()}{printMonitorAmbiental()}}
+{\footnotesize\ttfamily \label{variables_8h_a3a53f25e77fa05335873d543726c365d} 
+void print\+Monitor\+Ambiental (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Función para mostrar el monitor ambiental. Lee los valores de temperatura, humedad e intensidad lumínica para luego mostrarlos. Si la temperatura, humedad o intensidad lumínica superan el umbral, se lanza una tarea. 
+
+!\texorpdfstring{$<$}{<}Funciones y tareas asincrónicas para el monitoreo ambiental y del sensor Hall. !\texorpdfstring{$<$}{<}Imprime los datos del monitoreo ambiental. Esta función se ejecuta periódicamente como parte de una tarea asincrónica. Debe implementarse para mostrar los valores ambientales (temperatura, luz, etc.). \Hypertarget{variables_8h_ac01b58ae65cd3d6bacbd47bbac55daf1}\index{variables.h@{variables.h}!printMonitorHall@{printMonitorHall}}
+\index{printMonitorHall@{printMonitorHall}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{printMonitorHall()}{printMonitorHall()}}
+{\footnotesize\ttfamily \label{variables_8h_ac01b58ae65cd3d6bacbd47bbac55daf1} 
+void print\+Monitor\+Hall (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Función para mostrar el monitor magnético. Lee los valores del sensor hall para luego mostrarlos en pantalla. Si el valor supera el umbral, se lanza una tarea. 
+
+!\texorpdfstring{$<$}{<}Imprime los datos del sensor Hall. Esta función se ejecuta periódicamente como parte de una tarea asincrónica. Debe implementarse para mostrar los valores del sensor Hall (campo magnético, etc.). \Hypertarget{variables_8h_a6391f40e9a91ac89de2a230b88d4fb92}\index{variables.h@{variables.h}!runWrongPass@{runWrongPass}}
+\index{runWrongPass@{runWrongPass}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{runWrongPass()}{runWrongPass()}}
+{\footnotesize\ttfamily \label{variables_8h_a6391f40e9a91ac89de2a230b88d4fb92} 
+void run\+Wrong\+Pass (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Ejecuta acciones cuando se ingresa una contraseña incorrecta. 
+
+Esta función se llama cuando se detecta una contraseña incorrecta en el sistema. Funcion para ejecutar que hay una contraseña incorrecta.
+
+Ejecuta acciones cuando se ingresa una contraseña incorrecta. \Hypertarget{variables_8h_a029729f179caaaef8e8cae07ebfb44c8}\index{variables.h@{variables.h}!stateMachine@{stateMachine}}
+\index{stateMachine@{stateMachine}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{stateMachine()}{stateMachine()}}
+{\footnotesize\ttfamily \label{variables_8h_a029729f179caaaef8e8cae07ebfb44c8} 
+\mbox{\hyperlink{class_state_machine}{State\+Machine}} state\+Machine (\begin{DoxyParamCaption}\item[{6}]{}{, }\item[{13}]{}{}\end{DoxyParamCaption})}
+
+Objeto de la maquina de estado con 6 estados y 13 transiciones \Hypertarget{variables_8h_ad2cd56e5615efe0c1dfd42c9147f12b5}\index{variables.h@{variables.h}!taskAgain@{taskAgain}}
+\index{taskAgain@{taskAgain}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskAgain()}{taskAgain()}}
+{\footnotesize\ttfamily \label{variables_8h_ad2cd56e5615efe0c1dfd42c9147f12b5} 
+Async\+Task task\+Again (\begin{DoxyParamCaption}\item[{2000}]{}{, }\item[{false}]{}{, }\item[{\mbox{\hyperlink{security_8h_ab7c9a87739679053f1cc8d9924997e88}{again}}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<} Tarea asincrónica para el manejo de eventos. Ejecuta la función again después de un intervalo de 2000 milisegundos (false indica una sola ejecución). \Hypertarget{variables_8h_a2134778a24ff8230d2663a252d3ac009}\index{variables.h@{variables.h}!taskButton@{taskButton}}
+\index{taskButton@{taskButton}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskButton()}{taskButton()}}
+{\footnotesize\ttfamily \label{variables_8h_a2134778a24ff8230d2663a252d3ac009} 
+Async\+Task task\+Button (\begin{DoxyParamCaption}\item[{10}]{}{, }\item[{false}]{}{, }\item[{\mbox{[}$\,$\mbox{]} () \{ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a77edd71b248cc2833a2e0f297658ca58}{Input\+::button}};\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<} Tarea para manejar la pulsación de un botón. Esta tarea se ejecuta una vez después de 10 ms y actualiza el estado de entrada a Input\+::button. \Hypertarget{variables_8h_a5cd401b5d2c0a30f342f2d842171e56b}\index{variables.h@{variables.h}!taskCorrect@{taskCorrect}}
+\index{taskCorrect@{taskCorrect}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskCorrect()}{taskCorrect()}}
+{\footnotesize\ttfamily \label{variables_8h_a5cd401b5d2c0a30f342f2d842171e56b} 
+Async\+Task task\+Correct (\begin{DoxyParamCaption}\item[{2000}]{}{, }\item[{false}]{}{, }\item[{\mbox{[}$\,$\mbox{]} ()\{ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090adeaae36b29147d2aaec23944a090d927}{Input\+::correct\+Password}};\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea para manejar la transición a la entrada correcta de la contraseña. Esta tarea se ejecuta una vez después de 2000 ms y actualiza el estado de entrada a Input\+::correct\+Password. \Hypertarget{variables_8h_a929bce38598dadae32011b2290c9af94}\index{variables.h@{variables.h}!taskHallHigh@{taskHallHigh}}
+\index{taskHallHigh@{taskHallHigh}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskHallHigh()}{taskHallHigh()}}
+{\footnotesize\ttfamily \label{variables_8h_a929bce38598dadae32011b2290c9af94} 
+Async\+Task task\+Hall\+High (\begin{DoxyParamCaption}\item[{5}]{}{, }\item[{false}]{}{, }\item[{\mbox{[}$\,$\mbox{]} ()\{ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a18034c393fe67853bea83af8c3de816c}{Input\+::hall\+High}};\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea para manejar una alta detección en el sensor de hall. Esta tarea se ejecuta una vez después de 5 ms y actualiza el estado de entrada a Input\+::hall\+High. \Hypertarget{variables_8h_ad5d5b8db307664190e579a3f83c359c2}\index{variables.h@{variables.h}!taskLightHigh@{taskLightHigh}}
+\index{taskLightHigh@{taskLightHigh}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskLightHigh()}{taskLightHigh()}}
+{\footnotesize\ttfamily \label{variables_8h_ad5d5b8db307664190e579a3f83c359c2} 
+Async\+Task task\+Light\+High (\begin{DoxyParamCaption}\item[{5}]{}{, }\item[{false}]{}{, }\item[{\mbox{[}$\,$\mbox{]} ()\{ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090aa9e0503900a1d3ebcede5154ee6a652d}{Input\+::light\+High}};\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea para manejar una alta luminosidad. Esta tarea se ejecuta una vez después de 5 ms y actualiza el estado de entrada a Input\+::light\+High. \Hypertarget{variables_8h_ac4de90a9d18b3ce9838fe041a20a7db5}\index{variables.h@{variables.h}!taskLoop@{taskLoop}}
+\index{taskLoop@{taskLoop}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskLoop()}{taskLoop()}}
+{\footnotesize\ttfamily \label{variables_8h_ac4de90a9d18b3ce9838fe041a20a7db5} 
+Async\+Task task\+Loop (\begin{DoxyParamCaption}\item[{1}]{}{, }\item[{true}]{}{, }\item[{\mbox{\hyperlink{security_8h_a441534208eb0dce8b2b7db1ee706080c}{loopS}}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea asincrónica para el bucle principal. Ejecuta la función loopS cada 1 milisegundo (true indica repetición infinita). \Hypertarget{variables_8h_af718b5349d1c98ab3552c179320676a7}\index{variables.h@{variables.h}!taskLoopMenu@{taskLoopMenu}}
+\index{taskLoopMenu@{taskLoopMenu}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskLoopMenu()}{taskLoopMenu()}}
+{\footnotesize\ttfamily \label{variables_8h_af718b5349d1c98ab3552c179320676a7} 
+Async\+Task task\+Loop\+Menu (\begin{DoxyParamCaption}\item[{100}]{}{, }\item[{true}]{}{, }\item[{\mbox{\hyperlink{menuconfig_8h_aa0716a7fb0351e5ac48f196cf972e8c4}{loop\+Liquid\+Menu}}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<} Tarea asincrónica para el bucle principal de Liquid\+Menu. Ejecuta la función loop\+Liquid\+Menu cada 100 milisegundos (true indica repetición infinita). \Hypertarget{variables_8h_a4dce425fca539eb8d4a44eaf75c1f8d4}\index{variables.h@{variables.h}!taskLoopMonitorAmbiental@{taskLoopMonitorAmbiental}}
+\index{taskLoopMonitorAmbiental@{taskLoopMonitorAmbiental}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskLoopMonitorAmbiental()}{taskLoopMonitorAmbiental()}}
+{\footnotesize\ttfamily \label{variables_8h_a4dce425fca539eb8d4a44eaf75c1f8d4} 
+Async\+Task task\+Loop\+Monitor\+Ambiental (\begin{DoxyParamCaption}\item[{300}]{}{, }\item[{true}]{}{, }\item[{\mbox{\hyperlink{monitores_8h_a3a53f25e77fa05335873d543726c365d}{print\+Monitor\+Ambiental}}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea asincrónica para el monitoreo ambiental. Ejecuta la función print\+Monitor\+Ambiental cada 300 milisegundos (true indica repetición infinita). \Hypertarget{variables_8h_a18675d8af22352ffbf816a4bb982dbf0}\index{variables.h@{variables.h}!taskLoopMonitorHall@{taskLoopMonitorHall}}
+\index{taskLoopMonitorHall@{taskLoopMonitorHall}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskLoopMonitorHall()}{taskLoopMonitorHall()}}
+{\footnotesize\ttfamily \label{variables_8h_a18675d8af22352ffbf816a4bb982dbf0} 
+Async\+Task task\+Loop\+Monitor\+Hall (\begin{DoxyParamCaption}\item[{300}]{}{, }\item[{true}]{}{, }\item[{\mbox{\hyperlink{monitores_8h_ac01b58ae65cd3d6bacbd47bbac55daf1}{print\+Monitor\+Hall}}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea asincrónica para el sensor Hall.\+Ejecuta la función print\+Monitor\+Hall cada 300 milisegundos (true indica repetición infinita). \Hypertarget{variables_8h_a04fc02723a11dff57e968349ddae8a18}\index{variables.h@{variables.h}!taskMelodyAlarm@{taskMelodyAlarm}}
+\index{taskMelodyAlarm@{taskMelodyAlarm}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskMelodyAlarm()}{taskMelodyAlarm()}}
+{\footnotesize\ttfamily \label{variables_8h_a04fc02723a11dff57e968349ddae8a18} 
+Async\+Task task\+Melody\+Alarm (\begin{DoxyParamCaption}\item[{1}]{}{, }\item[{true}]{}{, }\item[{\mbox{\hyperlink{_buzzer_8h_a21ab6a4121a04f81c203ac01bc0c1af2}{play\+Next\+Note}}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Tareas de Buzzer. 
+
+!\texorpdfstring{$<$}{<}Tarea asincrónica para reproducir la siguiente nota en la alarma Ejecuta la función play\+Next\+Note cada 1 milisegundo (true indica repetición infinita). \Hypertarget{variables_8h_a81d3b1eb10eba602f0f2d27932e38b6c}\index{variables.h@{variables.h}!taskMelodyBlock@{taskMelodyBlock}}
+\index{taskMelodyBlock@{taskMelodyBlock}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskMelodyBlock()}{taskMelodyBlock()}}
+{\footnotesize\ttfamily \label{variables_8h_a81d3b1eb10eba602f0f2d27932e38b6c} 
+Async\+Task task\+Melody\+Block (\begin{DoxyParamCaption}\item[{1}]{}{, }\item[{true}]{}{, }\item[{\mbox{\hyperlink{_buzzer_8h_a21ab6a4121a04f81c203ac01bc0c1af2}{play\+Next\+Note}}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea asincrónica para reproducir la siguiente nota en el bloqueo Ejecuta la función play\+Next\+Note cada 1 milisegundo (true indica repetición infinita). \Hypertarget{variables_8h_a8e648066a858737431aae31d2e6a8d38}\index{variables.h@{variables.h}!taskOnLedB@{taskOnLedB}}
+\index{taskOnLedB@{taskOnLedB}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskOnLedB()}{taskOnLedB()}}
+{\footnotesize\ttfamily \label{variables_8h_a8e648066a858737431aae31d2e6a8d38} 
+Async\+Task task\+On\+LedB (\begin{DoxyParamCaption}\item[{800}]{}{, }\item[{true}]{}{, }\item[{\mbox{[}$\,$\mbox{]} ()\{ if(\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}==0) digital\+Write(\mbox{\hyperlink{variables_8h_a223c77983bbc99c4cdedb45552d47e5d}{ledB}}, HIGH);else digital\+Write(\mbox{\hyperlink{variables_8h_a223c77983bbc99c4cdedb45552d47e5d}{ledB}}, LOW);\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}=\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}==0 ? 1\+:0;\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<} Tarea asincrónica para el LED azul. Enciende o apaga el LED rojo periódicamente cada 800 milisegundos (true indica repetición infinita). \Hypertarget{variables_8h_a2297264e34e8a31ab2bd68d48b4734b4}\index{variables.h@{variables.h}!taskOnLedR@{taskOnLedR}}
+\index{taskOnLedR@{taskOnLedR}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskOnLedR()}{taskOnLedR()}}
+{\footnotesize\ttfamily \label{variables_8h_a2297264e34e8a31ab2bd68d48b4734b4} 
+Async\+Task task\+On\+LedR (\begin{DoxyParamCaption}\item[{500}]{}{, }\item[{true}]{}{, }\item[{\mbox{[}$\,$\mbox{]} ()\{ if(\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}==0) digital\+Write(\mbox{\hyperlink{variables_8h_a4845bb5aed44e522c58d987e9fc75655}{ledR}}, HIGH);else digital\+Write(\mbox{\hyperlink{variables_8h_a4845bb5aed44e522c58d987e9fc75655}{ledR}}, LOW);\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}=\mbox{\hyperlink{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}{prendido}}==0 ? 1\+:0;\}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Tareas de leds. 
+
+!\texorpdfstring{$<$}{<}Tarea asincrónica para el LED rojo. Enciende o apaga el LED rojo periódicamente cada 500 milisegundos (true indica repetición infinita). \Hypertarget{variables_8h_ad9768b93be7a56d5f1063d04dc00adf8}\index{variables.h@{variables.h}!taskStopLoop@{taskStopLoop}}
+\index{taskStopLoop@{taskStopLoop}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskStopLoop()}{taskStopLoop()}}
+{\footnotesize\ttfamily \label{variables_8h_ad9768b93be7a56d5f1063d04dc00adf8} 
+Async\+Task task\+Stop\+Loop (\begin{DoxyParamCaption}\item[{1}]{}{, }\item[{false}]{}{, }\item[{\mbox{[}$\,$\mbox{]} () \{ task\+Loop.\+Stop();\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea asincrónica para detener el bucle principal. Ejecuta una función lambda que detiene la tarea task\+Loop después de 1 milisegundo. \Hypertarget{variables_8h_aa83811365d7995764e95327aeae43a8a}\index{variables.h@{variables.h}!taskSysBlock@{taskSysBlock}}
+\index{taskSysBlock@{taskSysBlock}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskSysBlock()}{taskSysBlock()}}
+{\footnotesize\ttfamily \label{variables_8h_aa83811365d7995764e95327aeae43a8a} 
+Async\+Task task\+Sys\+Block (\begin{DoxyParamCaption}\item[{10}]{}{, }\item[{false}]{}{, }\item[{\mbox{[}$\,$\mbox{]} () \{\mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a71a5d9d83e1255cbc76b3f968d6c2195}{Input\+::sys\+Block}};\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea para manejar el bloqueo del sistema. Esta tarea se ejecuta una vez después de 10 ms y actualiza el estado de entrada a Input\+::sys\+Block. \Hypertarget{variables_8h_aa4244768356cdaa930aa1a52e6d5016f}\index{variables.h@{variables.h}!taskTempHigh@{taskTempHigh}}
+\index{taskTempHigh@{taskTempHigh}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskTempHigh()}{taskTempHigh()}}
+{\footnotesize\ttfamily \label{variables_8h_aa4244768356cdaa930aa1a52e6d5016f} 
+Async\+Task task\+Temp\+High (\begin{DoxyParamCaption}\item[{5}]{}{, }\item[{false}]{}{, }\item[{\mbox{[}$\,$\mbox{]} ()\{ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090abc1860354eee45f5d31cf39c5dbbf769}{Input\+::temp\+High}};\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea para manejar una temperatura alta. Esta tarea se ejecuta una vez después de 5 ms y actualiza el estado de entrada a Input\+::temp\+High. \Hypertarget{variables_8h_a9341a544aab2e0b3b626b9f9a109effa}\index{variables.h@{variables.h}!taskTimeOut10@{taskTimeOut10}}
+\index{taskTimeOut10@{taskTimeOut10}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskTimeOut10()}{taskTimeOut10()}}
+{\footnotesize\ttfamily \label{variables_8h_a9341a544aab2e0b3b626b9f9a109effa} 
+Async\+Task task\+Time\+Out10 (\begin{DoxyParamCaption}\item[{10000}]{}{, }\item[{false}]{}{, }\item[{\mbox{[}$\,$\mbox{]} () \{ \mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090ae477926fd69666b32c16b6c138843a95}{Input\+::time\+Out10}};\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea para manejar el tiempo de espera de 10 segundos. Esta tarea se ejecuta una vez después de 10000 ms y actualiza el estado de entrada a Input\+::time\+Out10. \Hypertarget{variables_8h_a22e20b2214a240320ae408cb30921877}\index{variables.h@{variables.h}!taskTimeOut3@{taskTimeOut3}}
+\index{taskTimeOut3@{taskTimeOut3}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskTimeOut3()}{taskTimeOut3()}}
+{\footnotesize\ttfamily \label{variables_8h_a22e20b2214a240320ae408cb30921877} 
+Async\+Task task\+Time\+Out3 (\begin{DoxyParamCaption}\item[{3000}]{}{, }\item[{false}]{}{, }\item[{\mbox{[}$\,$\mbox{]} ()\{\mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a0c99996479dcbf3da1285900f73faf5b}{Input\+::time\+Out3}};\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<} Tarea para manejar el tiempo de espera de 3 segundos. Esta tarea se ejecuta una vez después de 3000 ms y actualiza el estado de entrada a Input\+::time\+Out3. \Hypertarget{variables_8h_af05ce2d503a38201374645796e06bbfa}\index{variables.h@{variables.h}!taskTimeOut30k@{taskTimeOut30k}}
+\index{taskTimeOut30k@{taskTimeOut30k}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskTimeOut30k()}{taskTimeOut30k()}}
+{\footnotesize\ttfamily \label{variables_8h_af05ce2d503a38201374645796e06bbfa} 
+Async\+Task task\+Time\+Out30k (\begin{DoxyParamCaption}\item[{5000}]{}{, }\item[{false}]{}{, }\item[{\mbox{[}$\,$\mbox{]} ()\{\mbox{\hyperlink{security_8h_a6391f40e9a91ac89de2a230b88d4fb92}{run\+Wrong\+Pass}}();\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea para manejar el tiempo de espera de 5 segundos por contraseñas incorrectas. Esta tarea se ejecuta una vez después de 5000 ms y llama a la función run\+Wrong\+Pass. \Hypertarget{variables_8h_a7d211f4b05f883ff1926d8b11d08554b}\index{variables.h@{variables.h}!taskTimeOut4@{taskTimeOut4}}
+\index{taskTimeOut4@{taskTimeOut4}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskTimeOut4()}{taskTimeOut4()}}
+{\footnotesize\ttfamily \label{variables_8h_a7d211f4b05f883ff1926d8b11d08554b} 
+Async\+Task task\+Time\+Out4 (\begin{DoxyParamCaption}\item[{4000}]{}{, }\item[{false}]{}{, }\item[{\mbox{[}$\,$\mbox{]} ()\{\mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090a49b06ef78d0e37af8061c621322a1e95}{Input\+::time\+Out4}};\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea para manejar el tiempo de espera de 4 segundos. Esta tarea se ejecuta una vez después de 4000 ms y actualiza el estado de entrada a Input\+::time\+Out4. \Hypertarget{variables_8h_abe6245211224253e24a110490ffdaa1a}\index{variables.h@{variables.h}!taskTimeOut7@{taskTimeOut7}}
+\index{taskTimeOut7@{taskTimeOut7}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{taskTimeOut7()}{taskTimeOut7()}}
+{\footnotesize\ttfamily \label{variables_8h_abe6245211224253e24a110490ffdaa1a} 
+Async\+Task task\+Time\+Out7 (\begin{DoxyParamCaption}\item[{7000}]{}{, }\item[{false}]{}{, }\item[{\mbox{[}$\,$\mbox{]} ()\{\mbox{\hyperlink{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}{input}}=\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090ac810e7931052713fbebc187b3c1dc469}{Input\+::time\+Out7}};\}}]{}{}\end{DoxyParamCaption})}
+
+!\texorpdfstring{$<$}{<}Tarea para manejar el tiempo de espera de 7 segundos. Esta tarea se ejecuta una vez después de 7000 ms y actualiza el estado de entrada a Input\+::time\+Out7. 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{variables_8h_aa9fece7b062124080e4b2976f9a8b675}\index{variables.h@{variables.h}!colPins@{colPins}}
+\index{colPins@{colPins}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{colPins}{colPins}}
+{\footnotesize\ttfamily \label{variables_8h_aa9fece7b062124080e4b2976f9a8b675} 
+byte col\+Pins\mbox{[}\mbox{\hyperlink{variables_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}\mbox{]} = \{30, 32, 34, 36\}}
+
+Configuracion de los pines de entrada para las columnas \Hypertarget{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb}\index{variables.h@{variables.h}!input@{input}}
+\index{input@{input}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{input}{input}}
+{\footnotesize\ttfamily \label{variables_8h_ad4db59ccea8946af2bb70f8269e99eeb} 
+\mbox{\hyperlink{variables_8h_a080a822f0093973313bd644e517a5090}{Input}} input}
+
+Señal para la transicion de la maquina de estados \Hypertarget{variables_8h_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe}\index{variables.h@{variables.h}!keypad@{keypad}}
+\index{keypad@{keypad}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{keypad}{keypad}}
+{\footnotesize\ttfamily \label{variables_8h_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe} 
+Keypad keypad = Keypad( make\+Keymap(\mbox{\hyperlink{variables_8h_a856e873a1d14012d57ddb813c4a1e40a}{keys}}), \mbox{\hyperlink{variables_8h_a6d6753e0ae098b31e2f84d4024e361cf}{row\+Pins}}, \mbox{\hyperlink{variables_8h_aa9fece7b062124080e4b2976f9a8b675}{col\+Pins}}, \mbox{\hyperlink{variables_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}, \mbox{\hyperlink{variables_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}} )}
+
+Objeto con configuracoin keypad \Hypertarget{variables_8h_a856e873a1d14012d57ddb813c4a1e40a}\index{variables.h@{variables.h}!keys@{keys}}
+\index{keys@{keys}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{keys}{keys}}
+{\footnotesize\ttfamily \label{variables_8h_a856e873a1d14012d57ddb813c4a1e40a} 
+char keys\mbox{[}\mbox{\hyperlink{variables_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}\mbox{]}\mbox{[}\mbox{\hyperlink{variables_8h_ab59ad2ee1a48b83c2eef1f019ed8cc48}{COLS}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \{\textcolor{charliteral}{'1'},\ \textcolor{charliteral}{'2'},\ \textcolor{charliteral}{'3'},\ \textcolor{charliteral}{'A'}\},}
+\DoxyCodeLine{\ \ \{\textcolor{charliteral}{'4'},\ \textcolor{charliteral}{'5'},\ \textcolor{charliteral}{'6'},\ \textcolor{charliteral}{'B'}\},}
+\DoxyCodeLine{\ \ \{\textcolor{charliteral}{'7'},\ \textcolor{charliteral}{'8'},\ \textcolor{charliteral}{'9'},\ \textcolor{charliteral}{'C'}\},}
+\DoxyCodeLine{\ \ \{\textcolor{charliteral}{'*'},\ \textcolor{charliteral}{'0'},\ \textcolor{charliteral}{'\#'},\ \textcolor{charliteral}{'D'}\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Configuracion de los caracteres de entrada del keypad \Hypertarget{variables_8h_a12d8105d32b3ac5d374959d193dcfe47}\index{variables.h@{variables.h}!maxHall@{maxHall}}
+\index{maxHall@{maxHall}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{maxHall}{maxHall}}
+{\footnotesize\ttfamily \label{variables_8h_a12d8105d32b3ac5d374959d193dcfe47} 
+int max\+Hall = 1000}
+
+Valor máximo del sensor Hall. \Hypertarget{variables_8h_a9c26e1bc1abf948252ed8afa39a4a1ea}\index{variables.h@{variables.h}!maxLight@{maxLight}}
+\index{maxLight@{maxLight}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{maxLight}{maxLight}}
+{\footnotesize\ttfamily \label{variables_8h_a9c26e1bc1abf948252ed8afa39a4a1ea} 
+int max\+Light = 300}
+
+Intensidad lumínica máxima permitida. \Hypertarget{variables_8h_a60e797ee57dc693aa833f5a210f2ff58}\index{variables.h@{variables.h}!maxTemp@{maxTemp}}
+\index{maxTemp@{maxTemp}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{maxTemp}{maxTemp}}
+{\footnotesize\ttfamily \label{variables_8h_a60e797ee57dc693aa833f5a210f2ff58} 
+int max\+Temp = 40}
+
+Temperatura máxima permitida en grados. \Hypertarget{variables_8h_a23cd2cf20d8882f78ef667c464270729}\index{variables.h@{variables.h}!minLight@{minLight}}
+\index{minLight@{minLight}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{minLight}{minLight}}
+{\footnotesize\ttfamily \label{variables_8h_a23cd2cf20d8882f78ef667c464270729} 
+int min\+Light = 50}
+
+Intensidad limínica mínima permitida. \Hypertarget{variables_8h_afb162ac6533952808e31e5ade163e2e5}\index{variables.h@{variables.h}!minTemp@{minTemp}}
+\index{minTemp@{minTemp}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{minTemp}{minTemp}}
+{\footnotesize\ttfamily \label{variables_8h_afb162ac6533952808e31e5ade163e2e5} 
+int min\+Temp = 0}
+
+Temperatura mínima permitida en grados. \Hypertarget{variables_8h_a2b5014ec8dacec3b1480d79846176c0b}\index{variables.h@{variables.h}!prendido@{prendido}}
+\index{prendido@{prendido}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{prendido}{prendido}}
+{\footnotesize\ttfamily \label{variables_8h_a2b5014ec8dacec3b1480d79846176c0b} 
+int prendido = 0}
+
+Representa si el led esta prendido \Hypertarget{variables_8h_a6d6753e0ae098b31e2f84d4024e361cf}\index{variables.h@{variables.h}!rowPins@{rowPins}}
+\index{rowPins@{rowPins}!variables.h@{variables.h}}
+\doxysubsubsection{\texorpdfstring{rowPins}{rowPins}}
+{\footnotesize\ttfamily \label{variables_8h_a6d6753e0ae098b31e2f84d4024e361cf} 
+byte row\+Pins\mbox{[}\mbox{\hyperlink{variables_8h_a3cfd3aa62338d12609f6d65bce97e9cd}{ROWS}}\mbox{]} = \{22, 24, 26, 28\}}
+
+Configuracion del los pines de entrada de las filas 

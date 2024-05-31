@@ -1,0 +1,183 @@
+\doxysection{Buzzer.\+h File Reference}
+\hypertarget{_buzzer_8h}{}\label{_buzzer_8h}\index{Buzzer.h@{Buzzer.h}}
+
+
+Se guarda toda logica y informacion necesaria para el sonido del buzzer.  
+
+
+{\ttfamily \#include "{}variables.\+h"{}}\newline
+{\ttfamily \#include "{}Easy\+Buzzer.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_buzzer_8h_a88aac44b58d74d5aa5749e17a22b8cdd}{NOTE\+\_\+\+B5}}~988
+\item 
+\#define \mbox{\hyperlink{_buzzer_8h_aff20d9abb2ef6f25afeb44245129eba6}{NOTE\+\_\+\+F4}}~349
+\item 
+\#define \mbox{\hyperlink{_buzzer_8h_af71ac5d772736db7a12fd9f9521dd475}{NOTE\+\_\+\+G5}}~784
+\item 
+\#define \mbox{\hyperlink{_buzzer_8h_adbed706152a3d7114327fc5af3c7e07c}{NOTE\+\_\+\+C4}}~262
+\item 
+\#define \mbox{\hyperlink{_buzzer_8h_ae063708dcb4d38cf311edf254f63e333}{buzzer}}~13
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_buzzer_8h_a199b659c341c448b9714b30bc97379c1}\label{_buzzer_8h_a199b659c341c448b9714b30bc97379c1} 
+int {\bfseries calculate\+Note\+Duration} (int note, int \mbox{\hyperlink{_buzzer_8h_a516115750e956e7c851392eeb95d7dcb}{tempo}})
+\begin{DoxyCompactList}\small\item\em calcula la duracion de la nota que se va a tocar \end{DoxyCompactList}\item 
+\Hypertarget{_buzzer_8h_a21ab6a4121a04f81c203ac01bc0c1af2}\label{_buzzer_8h_a21ab6a4121a04f81c203ac01bc0c1af2} 
+void {\bfseries play\+Next\+Note} ()
+\begin{DoxyCompactList}\small\item\em Hace sonar la siguiente nota y valida casos importantes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_buzzer_8h_a09d174b231f56e59c025b5aece08ad3c}{start\+Melody}} (int melody\mbox{[}$\,$\mbox{]}, int length)
+\begin{DoxyCompactList}\small\item\em Configura la meolodia para cuando se ejecute el play\+Next\+Note. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_buzzer_8h_a516115750e956e7c851392eeb95d7dcb}{tempo}} = 60
+\item 
+int \mbox{\hyperlink{_buzzer_8h_a9d43168fe5d84121ee5089cdae450222}{current\+Note\+Index}} = 0
+\item 
+int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_buzzer_8h_ac3973053d383463d05bd3a6af52afd1e}{current\+Melody}}
+\item 
+int \mbox{\hyperlink{_buzzer_8h_a126949eafcb9833d2cc1f0a7b1b846a7}{current\+Melody\+Length}}
+\item 
+unsigned long \mbox{\hyperlink{_buzzer_8h_ac6de1295bad909787948120749b06aef}{note\+Start\+Time}} = 0
+\item 
+bool \mbox{\hyperlink{_buzzer_8h_af55f7beec49af3268e5ed9aa85dc8d4f}{is\+Playing}} = false
+\item 
+int \mbox{\hyperlink{_buzzer_8h_ab038cf7a8cb1cd17371f6cc42d2bb361}{buzzer\+Block}} \mbox{[}$\,$\mbox{]}
+\item 
+int \mbox{\hyperlink{_buzzer_8h_ab5aeefee5bd6e2712bc28afb997d23e0}{buzzer\+Alarm}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Se guarda toda logica y informacion necesaria para el sonido del buzzer. 
+
+\begin{DoxyAuthor}{Author}
+Miguel Calambas 
+
+Esteban Escandon 
+
+Lina Diaz 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_buzzer_8h_ae063708dcb4d38cf311edf254f63e333}\index{Buzzer.h@{Buzzer.h}!buzzer@{buzzer}}
+\index{buzzer@{buzzer}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{buzzer}{buzzer}}
+{\footnotesize\ttfamily \label{_buzzer_8h_ae063708dcb4d38cf311edf254f63e333} 
+\#define buzzer~13}
+
+Pin de salida digital para el buzzer \Hypertarget{_buzzer_8h_a88aac44b58d74d5aa5749e17a22b8cdd}\index{Buzzer.h@{Buzzer.h}!NOTE\_B5@{NOTE\_B5}}
+\index{NOTE\_B5@{NOTE\_B5}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{NOTE\_B5}{NOTE\_B5}}
+{\footnotesize\ttfamily \label{_buzzer_8h_a88aac44b58d74d5aa5749e17a22b8cdd} 
+\#define NOTE\+\_\+\+B5~988}
+
+valor de la nota B5 \Hypertarget{_buzzer_8h_adbed706152a3d7114327fc5af3c7e07c}\index{Buzzer.h@{Buzzer.h}!NOTE\_C4@{NOTE\_C4}}
+\index{NOTE\_C4@{NOTE\_C4}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{NOTE\_C4}{NOTE\_C4}}
+{\footnotesize\ttfamily \label{_buzzer_8h_adbed706152a3d7114327fc5af3c7e07c} 
+\#define NOTE\+\_\+\+C4~262}
+
+valor de la nota C4 \Hypertarget{_buzzer_8h_aff20d9abb2ef6f25afeb44245129eba6}\index{Buzzer.h@{Buzzer.h}!NOTE\_F4@{NOTE\_F4}}
+\index{NOTE\_F4@{NOTE\_F4}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{NOTE\_F4}{NOTE\_F4}}
+{\footnotesize\ttfamily \label{_buzzer_8h_aff20d9abb2ef6f25afeb44245129eba6} 
+\#define NOTE\+\_\+\+F4~349}
+
+valor de la nota F4 \Hypertarget{_buzzer_8h_af71ac5d772736db7a12fd9f9521dd475}\index{Buzzer.h@{Buzzer.h}!NOTE\_G5@{NOTE\_G5}}
+\index{NOTE\_G5@{NOTE\_G5}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{NOTE\_G5}{NOTE\_G5}}
+{\footnotesize\ttfamily \label{_buzzer_8h_af71ac5d772736db7a12fd9f9521dd475} 
+\#define NOTE\+\_\+\+G5~784}
+
+valor de la nota G5 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_buzzer_8h_a09d174b231f56e59c025b5aece08ad3c}\index{Buzzer.h@{Buzzer.h}!startMelody@{startMelody}}
+\index{startMelody@{startMelody}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{startMelody()}{startMelody()}}
+{\footnotesize\ttfamily \label{_buzzer_8h_a09d174b231f56e59c025b5aece08ad3c} 
+void start\+Melody (\begin{DoxyParamCaption}\item[{int}]{melody}{\mbox{[}$\,$\mbox{]}, }\item[{int}]{length}{}\end{DoxyParamCaption})}
+
+
+
+Configura la meolodia para cuando se ejecute el play\+Next\+Note. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em melody} & parametro que resibe la meolodia que se va a configurar \\
+\hline
+{\em length} & parametro que resibe la longitud de la meolodia que se va a configurar \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_buzzer_8h_ab5aeefee5bd6e2712bc28afb997d23e0}\index{Buzzer.h@{Buzzer.h}!buzzerAlarm@{buzzerAlarm}}
+\index{buzzerAlarm@{buzzerAlarm}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{buzzerAlarm}{buzzerAlarm}}
+{\footnotesize\ttfamily \label{_buzzer_8h_ab5aeefee5bd6e2712bc28afb997d23e0} 
+int buzzer\+Alarm\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{_buzzer_8h_af71ac5d772736db7a12fd9f9521dd475}{NOTE\_G5}},\ 8,\ \mbox{\hyperlink{_buzzer_8h_adbed706152a3d7114327fc5af3c7e07c}{NOTE\_C4}},\ 8,\ \mbox{\hyperlink{_buzzer_8h_af71ac5d772736db7a12fd9f9521dd475}{NOTE\_G5}},\ 8,\ \mbox{\hyperlink{_buzzer_8h_adbed706152a3d7114327fc5af3c7e07c}{NOTE\_C4}},\ 8}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+molodia para el alarm \Hypertarget{_buzzer_8h_ab038cf7a8cb1cd17371f6cc42d2bb361}\index{Buzzer.h@{Buzzer.h}!buzzerBlock@{buzzerBlock}}
+\index{buzzerBlock@{buzzerBlock}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{buzzerBlock}{buzzerBlock}}
+{\footnotesize\ttfamily \label{_buzzer_8h_ab038cf7a8cb1cd17371f6cc42d2bb361} 
+int buzzer\+Block\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{_buzzer_8h_a88aac44b58d74d5aa5749e17a22b8cdd}{NOTE\_B5}},\ 8,\ \mbox{\hyperlink{_buzzer_8h_aff20d9abb2ef6f25afeb44245129eba6}{NOTE\_F4}},\ 8}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+melodia para el estado block \Hypertarget{_buzzer_8h_ac3973053d383463d05bd3a6af52afd1e}\index{Buzzer.h@{Buzzer.h}!currentMelody@{currentMelody}}
+\index{currentMelody@{currentMelody}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{currentMelody}{currentMelody}}
+{\footnotesize\ttfamily \label{_buzzer_8h_ac3973053d383463d05bd3a6af52afd1e} 
+int\texorpdfstring{$\ast$}{*} current\+Melody}
+
+melodia que se ha configurado \Hypertarget{_buzzer_8h_a126949eafcb9833d2cc1f0a7b1b846a7}\index{Buzzer.h@{Buzzer.h}!currentMelodyLength@{currentMelodyLength}}
+\index{currentMelodyLength@{currentMelodyLength}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{currentMelodyLength}{currentMelodyLength}}
+{\footnotesize\ttfamily \label{_buzzer_8h_a126949eafcb9833d2cc1f0a7b1b846a7} 
+int current\+Melody\+Length}
+
+Lonigutd de la melodia \Hypertarget{_buzzer_8h_a9d43168fe5d84121ee5089cdae450222}\index{Buzzer.h@{Buzzer.h}!currentNoteIndex@{currentNoteIndex}}
+\index{currentNoteIndex@{currentNoteIndex}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{currentNoteIndex}{currentNoteIndex}}
+{\footnotesize\ttfamily \label{_buzzer_8h_a9d43168fe5d84121ee5089cdae450222} 
+int current\+Note\+Index = 0}
+
+index de la nota actual \Hypertarget{_buzzer_8h_af55f7beec49af3268e5ed9aa85dc8d4f}\index{Buzzer.h@{Buzzer.h}!isPlaying@{isPlaying}}
+\index{isPlaying@{isPlaying}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{isPlaying}{isPlaying}}
+{\footnotesize\ttfamily \label{_buzzer_8h_af55f7beec49af3268e5ed9aa85dc8d4f} 
+bool is\+Playing = false}
+
+boleano que representa si esta sonando \Hypertarget{_buzzer_8h_ac6de1295bad909787948120749b06aef}\index{Buzzer.h@{Buzzer.h}!noteStartTime@{noteStartTime}}
+\index{noteStartTime@{noteStartTime}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{noteStartTime}{noteStartTime}}
+{\footnotesize\ttfamily \label{_buzzer_8h_ac6de1295bad909787948120749b06aef} 
+unsigned long note\+Start\+Time = 0}
+
+valor del tiempo de la nota start \Hypertarget{_buzzer_8h_a516115750e956e7c851392eeb95d7dcb}\index{Buzzer.h@{Buzzer.h}!tempo@{tempo}}
+\index{tempo@{tempo}!Buzzer.h@{Buzzer.h}}
+\doxysubsubsection{\texorpdfstring{tempo}{tempo}}
+{\footnotesize\ttfamily \label{_buzzer_8h_a516115750e956e7c851392eeb95d7dcb} 
+int tempo = 60}
+
+temp para el buzzer 

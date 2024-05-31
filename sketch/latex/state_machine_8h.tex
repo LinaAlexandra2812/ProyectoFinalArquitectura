@@ -1,0 +1,78 @@
+\doxysection{state\+Machine.\+h File Reference}
+\hypertarget{state_machine_8h}{}\label{state_machine_8h}\index{stateMachine.h@{stateMachine.h}}
+
+
+componente para configurar la maquina de estado Este archivo tiene toda la logica acerca de la configuracion de transiciones y estados Tambien tiene las funciones que se ejecutan al entrar o salir de un estado  
+
+
+{\ttfamily \#include "{}security.\+h"{}}\newline
+{\ttfamily \#include "{}monitores.\+h"{}}\newline
+{\ttfamily \#include "{}menuconfig.\+h"{}}\newline
+{\ttfamily \#include "{}Buzzer.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{state_machine_8h_a2dc41f4c4e2fbdad98769056417cea46}{run\+Sys\+Block}} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta acciones necesarias al entrar al estado sysblock. \end{DoxyCompactList}\item 
+\Hypertarget{state_machine_8h_a3a51b585bd7c6d4efc33f57d870412cb}\label{state_machine_8h_a3a51b585bd7c6d4efc33f57d870412cb} 
+void {\bfseries run\+Config} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta acciones necesarias al entrar al estado config. \end{DoxyCompactList}\item 
+\Hypertarget{state_machine_8h_a8aa9edd49075bbc8db6733df899a3166}\label{state_machine_8h_a8aa9edd49075bbc8db6733df899a3166} 
+void {\bfseries run\+Monitor\+Ambiental} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta acciones necesarias al entrar al estado monitor\+Ambiental. \end{DoxyCompactList}\item 
+\Hypertarget{state_machine_8h_af0d0b9d817301c815aaf95a82db3d644}\label{state_machine_8h_af0d0b9d817301c815aaf95a82db3d644} 
+void {\bfseries run\+Monitor\+Events} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta acciones necesarias al entrar al estado monitor\+Events. \end{DoxyCompactList}\item 
+\Hypertarget{state_machine_8h_ae8b78ed1c2b17942e9570e008b653056}\label{state_machine_8h_ae8b78ed1c2b17942e9570e008b653056} 
+void {\bfseries run\+Alarm} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta acciones necesarias al entrar al estado alarm. \end{DoxyCompactList}\item 
+\Hypertarget{state_machine_8h_a53b373833d160dccc747fb89329a19c7}\label{state_machine_8h_a53b373833d160dccc747fb89329a19c7} 
+void {\bfseries leaving\+Monitor\+Ambiental} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta acciones (o detiene tareas) necesarias al salir al estado monitor\+Ambiental. \end{DoxyCompactList}\item 
+\Hypertarget{state_machine_8h_a27068d91eb9589fd7483401cb24894fc}\label{state_machine_8h_a27068d91eb9589fd7483401cb24894fc} 
+void {\bfseries leaving\+Monitor\+Events} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta acciones (o detiene tareas) necesarias al salir al estado monitor\+Events. \end{DoxyCompactList}\item 
+\Hypertarget{state_machine_8h_a43b52029877c12307b9f0f93af8e2ff1}\label{state_machine_8h_a43b52029877c12307b9f0f93af8e2ff1} 
+void {\bfseries leaving\+Config} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta acciones (o detiene tareas) necesarias al salir al estado config. \end{DoxyCompactList}\item 
+\Hypertarget{state_machine_8h_a3725f152403e57c441faf7041d7c6fb1}\label{state_machine_8h_a3725f152403e57c441faf7041d7c6fb1} 
+void {\bfseries leaving\+Alarm} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta acciones (o detiene tareas) necesarias al salir al estado alarm. \end{DoxyCompactList}\item 
+\Hypertarget{state_machine_8h_a097af678eb8a1a646be6977d65a3b880}\label{state_machine_8h_a097af678eb8a1a646be6977d65a3b880} 
+void {\bfseries leaving\+Block} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta acciones (o detiene tareas) necesarias al salir al estado sysblock. \end{DoxyCompactList}\item 
+\Hypertarget{state_machine_8h_a9e9a6b4f4661f41ec31d1ba969a97dd7}\label{state_machine_8h_a9e9a6b4f4661f41ec31d1ba969a97dd7} 
+void {\bfseries leaving\+Start} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta acciones (o detiene tareas) necesarias al salir al estado start. \end{DoxyCompactList}\item 
+\Hypertarget{state_machine_8h_aca804055d6a8f7784fecbd5c872a8e04}\label{state_machine_8h_aca804055d6a8f7784fecbd5c872a8e04} 
+void {\bfseries setup\+Machine} ()
+\begin{DoxyCompactList}\small\item\em Configura los estados de la maquina y sus transiciones. \end{DoxyCompactList}\item 
+\Hypertarget{state_machine_8h_a61c3509f2939875be5a26eac4836f882}\label{state_machine_8h_a61c3509f2939875be5a26eac4836f882} 
+void {\bfseries start\+Melody} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+componente para configurar la maquina de estado Este archivo tiene toda la logica acerca de la configuracion de transiciones y estados Tambien tiene las funciones que se ejecutan al entrar o salir de un estado 
+
+\begin{DoxyAuthor}{Author}
+Miguel Calambas 
+
+Esteban Escandon 
+
+Lina Diaz 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{state_machine_8h_a2dc41f4c4e2fbdad98769056417cea46}\index{stateMachine.h@{stateMachine.h}!runSysBlock@{runSysBlock}}
+\index{runSysBlock@{runSysBlock}!stateMachine.h@{stateMachine.h}}
+\doxysubsubsection{\texorpdfstring{runSysBlock()}{runSysBlock()}}
+{\footnotesize\ttfamily \label{state_machine_8h_a2dc41f4c4e2fbdad98769056417cea46} 
+void run\+Sys\+Block (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Ejecuta acciones necesarias al entrar al estado sysblock. 
+
+Función que se encarg. 

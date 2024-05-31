@@ -1,0 +1,156 @@
+\doxysection{menuconfig.\+h}
+\hypertarget{menuconfig_8h_source}{}\label{menuconfig_8h_source}\mbox{\hyperlink{menuconfig_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ MENUCONFIG\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ MENUCONFIG\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{variables_8h}{variables.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <LiquidMenu.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ limitMaxTemp\ 50\ }}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ limitMaxHall\ 1023\ }}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ limitMaxLight\ 1023\ }}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ limitMinTemp\ 0\ }}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ limitMinLight\ 0\ }}
+\DoxyCodeLine{00024\ LiquidLine\ \mbox{\hyperlink{menuconfig_8h_a7f84c80dd9efaa1776558a617004096c}{line1}}(0,\ 1,\ \textcolor{stringliteral}{"{}TEMP\ HIGH\ ["{}},\ \mbox{\hyperlink{variables_8h_a60e797ee57dc693aa833f5a210f2ff58}{maxTemp}},\ \textcolor{stringliteral}{"{}]"{}});\ }
+\DoxyCodeLine{00025\ LiquidLine\ \mbox{\hyperlink{menuconfig_8h_a6edeffe8297a7bd471ac35ad184ae2f8}{line2}}(0,\ 1,\ \textcolor{stringliteral}{"{}TEMP\ LOW\ ["{}},\ \mbox{\hyperlink{variables_8h_afb162ac6533952808e31e5ade163e2e5}{minTemp}},\ \textcolor{stringliteral}{"{}]"{}});\ }
+\DoxyCodeLine{00026\ LiquidLine\ \mbox{\hyperlink{menuconfig_8h_a5f3a2f14c38fec92059d5fc885aaa44f}{line3}}(0,\ 1,\ \textcolor{stringliteral}{"{}LUZ\ HIGH\ ["{}},\ \mbox{\hyperlink{variables_8h_a9c26e1bc1abf948252ed8afa39a4a1ea}{maxLight}},\ \textcolor{stringliteral}{"{}]"{}});}
+\DoxyCodeLine{00027\ LiquidLine\ \mbox{\hyperlink{menuconfig_8h_a019d1c1a326536994db0b3fe0894c728}{line4}}(0,\ 1,\ \textcolor{stringliteral}{"{}LUZ\ LOW\ ["{}},\ \mbox{\hyperlink{variables_8h_a23cd2cf20d8882f78ef667c464270729}{minLight}},\ \textcolor{stringliteral}{"{}]"{}});\ }
+\DoxyCodeLine{00028\ LiquidLine\ \mbox{\hyperlink{menuconfig_8h_a39295967b15fcff1fc8bdd403e9a93cd}{line5}}(0,\ 1,\ \textcolor{stringliteral}{"{}HALL\ ["{}},\ \mbox{\hyperlink{variables_8h_a12d8105d32b3ac5d374959d193dcfe47}{maxHall}},\ \textcolor{stringliteral}{"{}]"{}});}
+\DoxyCodeLine{00029\ LiquidLine\ \mbox{\hyperlink{menuconfig_8h_a3dd0409f896c67c7d5b814916aeae520}{line6}}(0,\ 1,\ \textcolor{stringliteral}{"{}RESET"{}});\ }
+\DoxyCodeLine{00031\ LiquidScreen\ \mbox{\hyperlink{menuconfig_8h_a6a9345bc64137f610e4980a712063620}{screen}};\ }
+\DoxyCodeLine{00032\ LiquidMenu\ \mbox{\hyperlink{menuconfig_8h_a44326b98ec270b9c40bf1f2c7bbdbc72}{menu}}(\mbox{\hyperlink{variables_8h_a817f6545bce2c289122706845ed0894c}{lcd}});\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menuconfig_8h_ae7a75cafc17b0c9abb50b0f70c96200e}{blankFunction}}()\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00039\ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menuconfig_8h_acb6971bc47f9084957258e47caee586e}{upValue}}(\textcolor{keywordtype}{int}\ actualLine);}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menuconfig_8h_ae5a5801b014f5cfed0758d63bca8e6f2}{downValue}}(\textcolor{keywordtype}{int}\ actualLine);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menuconfig_8h_abde53123a2f13763a570b86a9bf56208}{startLiquidMenu}}()\{}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{menuconfig_8h_a6a9345bc64137f610e4980a712063620}{screen}}.add\_line(\mbox{\hyperlink{menuconfig_8h_a7f84c80dd9efaa1776558a617004096c}{line1}});}
+\DoxyCodeLine{00058\ \ \ \mbox{\hyperlink{menuconfig_8h_a6a9345bc64137f610e4980a712063620}{screen}}.add\_line(\mbox{\hyperlink{menuconfig_8h_a6edeffe8297a7bd471ac35ad184ae2f8}{line2}});}
+\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{menuconfig_8h_a6a9345bc64137f610e4980a712063620}{screen}}.add\_line(\mbox{\hyperlink{menuconfig_8h_a5f3a2f14c38fec92059d5fc885aaa44f}{line3}});}
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{menuconfig_8h_a6a9345bc64137f610e4980a712063620}{screen}}.add\_line(\mbox{\hyperlink{menuconfig_8h_a019d1c1a326536994db0b3fe0894c728}{line4}});}
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{menuconfig_8h_a6a9345bc64137f610e4980a712063620}{screen}}.add\_line(\mbox{\hyperlink{menuconfig_8h_a39295967b15fcff1fc8bdd403e9a93cd}{line5}});}
+\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{menuconfig_8h_a6a9345bc64137f610e4980a712063620}{screen}}.add\_line(\mbox{\hyperlink{menuconfig_8h_a3dd0409f896c67c7d5b814916aeae520}{line6}});}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{menuconfig_8h_a7f84c80dd9efaa1776558a617004096c}{line1}}.attach\_function(1,\ \mbox{\hyperlink{menuconfig_8h_ae7a75cafc17b0c9abb50b0f70c96200e}{blankFunction}});}
+\DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{menuconfig_8h_a6edeffe8297a7bd471ac35ad184ae2f8}{line2}}.attach\_function(1,\ \mbox{\hyperlink{menuconfig_8h_ae7a75cafc17b0c9abb50b0f70c96200e}{blankFunction}});}
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{menuconfig_8h_a5f3a2f14c38fec92059d5fc885aaa44f}{line3}}.attach\_function(1,\ \mbox{\hyperlink{menuconfig_8h_ae7a75cafc17b0c9abb50b0f70c96200e}{blankFunction}});}
+\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{menuconfig_8h_a019d1c1a326536994db0b3fe0894c728}{line4}}.attach\_function(1,\ \mbox{\hyperlink{menuconfig_8h_ae7a75cafc17b0c9abb50b0f70c96200e}{blankFunction}});}
+\DoxyCodeLine{00068\ \ \ \mbox{\hyperlink{menuconfig_8h_a39295967b15fcff1fc8bdd403e9a93cd}{line5}}.attach\_function(1,\ \mbox{\hyperlink{menuconfig_8h_ae7a75cafc17b0c9abb50b0f70c96200e}{blankFunction}});}
+\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{menuconfig_8h_a3dd0409f896c67c7d5b814916aeae520}{line6}}.attach\_function(1,\ \mbox{\hyperlink{menuconfig_8h_ae7a75cafc17b0c9abb50b0f70c96200e}{blankFunction}});}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \mbox{\hyperlink{menuconfig_8h_a6a9345bc64137f610e4980a712063620}{screen}}.set\_displayLineCount(2);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \mbox{\hyperlink{menuconfig_8h_a7f84c80dd9efaa1776558a617004096c}{line1}}.set\_decimalPlaces(2);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \mbox{\hyperlink{menuconfig_8h_a44326b98ec270b9c40bf1f2c7bbdbc72}{menu}}.add\_screen(\mbox{\hyperlink{menuconfig_8h_a6a9345bc64137f610e4980a712063620}{screen}});}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \mbox{\hyperlink{menuconfig_8h_a44326b98ec270b9c40bf1f2c7bbdbc72}{menu}}.update();}
+\DoxyCodeLine{00079\ \ \ \mbox{\hyperlink{menuconfig_8h_a44326b98ec270b9c40bf1f2c7bbdbc72}{menu}}.switch\_focus();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \mbox{\hyperlink{variables_8h_af718b5349d1c98ab3552c179320676a7}{taskLoopMenu}}.Start();}
+\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menuconfig_8h_aa0716a7fb0351e5ac48f196cf972e8c4}{loopLiquidMenu}}()\{}
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{char}\ key\ =\ \mbox{\hyperlink{variables_8h_a0e6c3cc7e8c762ab0ca1fa2296d7bbfe}{keypad}}.getKey();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordflow}{if}(!key)}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{int}\ actualLine\ =\ \mbox{\hyperlink{menuconfig_8h_a44326b98ec270b9c40bf1f2c7bbdbc72}{menu}}.get\_focusedLine();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordflow}{switch}\ (key)\ \{}
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'A'}:}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{menuconfig_8h_acb6971bc47f9084957258e47caee586e}{upValue}}(actualLine);}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'B'}:}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{menuconfig_8h_ae5a5801b014f5cfed0758d63bca8e6f2}{downValue}}(actualLine);}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'D'}:}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{menuconfig_8h_a44326b98ec270b9c40bf1f2c7bbdbc72}{menu}}.switch\_focus();}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{if}(actualLine\ ==\ 5)}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \mbox{\hyperlink{menuconfig_8h_a44326b98ec270b9c40bf1f2c7bbdbc72}{menu}}.switch\_focus();}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00108\ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00109\ \ \ \ \ Serial.println(actualLine);}
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00111\ \ \ }
+\DoxyCodeLine{00112\ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{menuconfig_8h_a44326b98ec270b9c40bf1f2c7bbdbc72}{menu}}.update();}
+\DoxyCodeLine{00114\ \ \ }
+\DoxyCodeLine{00115\ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menuconfig_8h_ad20897c5c8bd47f5d4005989bead0e55}{reset}}()\{}
+\DoxyCodeLine{00121\ \ \ \mbox{\hyperlink{variables_8h_a60e797ee57dc693aa833f5a210f2ff58}{maxTemp}}\ =\ 40;}
+\DoxyCodeLine{00122\ \ \ \mbox{\hyperlink{variables_8h_afb162ac6533952808e31e5ade163e2e5}{minTemp}}\ =\ 0;}
+\DoxyCodeLine{00123\ \ \ \mbox{\hyperlink{variables_8h_a9c26e1bc1abf948252ed8afa39a4a1ea}{maxLight}}=\ 300;}
+\DoxyCodeLine{00124\ \ \ \mbox{\hyperlink{variables_8h_a23cd2cf20d8882f78ef667c464270729}{minLight}}=\ 50;}
+\DoxyCodeLine{00125\ \ \ \mbox{\hyperlink{variables_8h_a12d8105d32b3ac5d374959d193dcfe47}{maxHall}}\ =\ 1000;}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menuconfig_8h_acb6971bc47f9084957258e47caee586e}{upValue}}(\textcolor{keywordtype}{int}\ actualLine)\{}
+\DoxyCodeLine{00133\ \ \ \textcolor{keywordflow}{switch}\ (actualLine)\ \{}
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{variables_8h_a60e797ee57dc693aa833f5a210f2ff58}{maxTemp}}+2\ <=\ \mbox{\hyperlink{menuconfig_8h_af36a1badbc94db7f5dfd8be8c9607e57}{limitMaxTemp}})}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \mbox{\hyperlink{variables_8h_a60e797ee57dc693aa833f5a210f2ff58}{maxTemp}}+=2;}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{variables_8h_afb162ac6533952808e31e5ade163e2e5}{minTemp}}+2\ <\ \mbox{\hyperlink{variables_8h_a60e797ee57dc693aa833f5a210f2ff58}{maxTemp}})}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \mbox{\hyperlink{variables_8h_afb162ac6533952808e31e5ade163e2e5}{minTemp}}+=2;\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00142\ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{variables_8h_a9c26e1bc1abf948252ed8afa39a4a1ea}{maxLight}}+20\ <=\ \mbox{\hyperlink{menuconfig_8h_a895e0f4c354da8aab550b1e49f572430}{limitMaxLight}})}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \mbox{\hyperlink{variables_8h_a9c26e1bc1abf948252ed8afa39a4a1ea}{maxLight}}+=20;}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00146\ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{variables_8h_a23cd2cf20d8882f78ef667c464270729}{minLight}}+20\ <\ \mbox{\hyperlink{variables_8h_a9c26e1bc1abf948252ed8afa39a4a1ea}{maxLight}})}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \mbox{\hyperlink{variables_8h_a23cd2cf20d8882f78ef667c464270729}{minLight}}+=20;}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00150\ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{variables_8h_a12d8105d32b3ac5d374959d193dcfe47}{maxHall}}+50\ <=\ \mbox{\hyperlink{menuconfig_8h_a0dae99d8b08975b2d2c0c0ccb800bd40}{limitMaxHall}})}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \mbox{\hyperlink{variables_8h_a12d8105d32b3ac5d374959d193dcfe47}{maxHall}}+=50;}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00154\ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{00155\ \ \ \ \ \mbox{\hyperlink{menuconfig_8h_ad20897c5c8bd47f5d4005989bead0e55}{reset}}();}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00157\ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \}}
+\DoxyCodeLine{00164\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menuconfig_8h_ae5a5801b014f5cfed0758d63bca8e6f2}{downValue}}(\textcolor{keywordtype}{int}\ actualLine)\{}
+\DoxyCodeLine{00165\ \ \ \textcolor{keywordflow}{switch}\ (actualLine)\ \{}
+\DoxyCodeLine{00166\ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{variables_8h_a60e797ee57dc693aa833f5a210f2ff58}{maxTemp}}-\/2\ >\ \mbox{\hyperlink{variables_8h_afb162ac6533952808e31e5ade163e2e5}{minTemp}})}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \mbox{\hyperlink{variables_8h_a60e797ee57dc693aa833f5a210f2ff58}{maxTemp}}-\/=2;}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00170\ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{variables_8h_afb162ac6533952808e31e5ade163e2e5}{minTemp}}-\/2\ >=\ \mbox{\hyperlink{menuconfig_8h_a6123cddb6a184494f7eb560c13a02b71}{limitMinTemp}})}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \mbox{\hyperlink{variables_8h_afb162ac6533952808e31e5ade163e2e5}{minTemp}}-\/=2;\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00174\ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{variables_8h_a9c26e1bc1abf948252ed8afa39a4a1ea}{maxLight}}-\/20\ >\ \mbox{\hyperlink{variables_8h_a23cd2cf20d8882f78ef667c464270729}{minLight}})}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \mbox{\hyperlink{variables_8h_a9c26e1bc1abf948252ed8afa39a4a1ea}{maxLight}}-\/=20;}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00178\ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{variables_8h_a23cd2cf20d8882f78ef667c464270729}{minLight}}-\/20\ >=\ \mbox{\hyperlink{menuconfig_8h_aa5573b1eefa7969da636544024ea9936}{limitMinLight}})}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \mbox{\hyperlink{variables_8h_a23cd2cf20d8882f78ef667c464270729}{minLight}}-\/=20;}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00182\ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{variables_8h_a12d8105d32b3ac5d374959d193dcfe47}{maxHall}}-\/50\ >=\ 0)}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \mbox{\hyperlink{variables_8h_a12d8105d32b3ac5d374959d193dcfe47}{maxHall}}-\/=50;}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00186\ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{menuconfig_8h_ad20897c5c8bd47f5d4005989bead0e55}{reset}}();}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00189\ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

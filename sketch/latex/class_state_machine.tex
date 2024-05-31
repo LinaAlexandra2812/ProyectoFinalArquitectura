@@ -1,0 +1,50 @@
+\doxysection{State\+Machine Class Reference}
+\hypertarget{class_state_machine}{}\label{class_state_machine}\index{StateMachine@{StateMachine}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_state_machine_a1c184149ecd646c1ec9da6cd81c35c6d}\label{class_state_machine_a1c184149ecd646c1ec9da6cd81c35c6d} 
+{\bfseries State\+Machine} (uint8\+\_\+t num\+States, uint8\+\_\+t num\+Transitions)
+\item 
+\Hypertarget{class_state_machine_ae71bdc3ddeefe3826508f0846cb843d3}\label{class_state_machine_ae71bdc3ddeefe3826508f0846cb843d3} 
+uint8\+\_\+t {\bfseries Add\+Transition} (uint8\+\_\+t input\+State, uint8\+\_\+t output\+State, State\+Machine\+Condition condition)
+\item 
+\Hypertarget{class_state_machine_aef04da6211ddbf547ddd88d538b6924f}\label{class_state_machine_aef04da6211ddbf547ddd88d538b6924f} 
+uint8\+\_\+t {\bfseries Add\+Transition} (uint8\+\_\+t input\+State, uint8\+\_\+t output\+State, State\+Machine\+Condition condition, State\+Machine\+Action action)
+\item 
+\Hypertarget{class_state_machine_a615a72a631a781dd9ba740df4d343b88}\label{class_state_machine_a615a72a631a781dd9ba740df4d343b88} 
+void {\bfseries Set\+Transition} (uint8\+\_\+t transition, uint8\+\_\+t input\+State, uint8\+\_\+t output\+State, State\+Machine\+Condition condition)
+\item 
+\Hypertarget{class_state_machine_a6bc55432b2fe9ae6ffa1488dd27eab8b}\label{class_state_machine_a6bc55432b2fe9ae6ffa1488dd27eab8b} 
+void {\bfseries Set\+Transition} (uint8\+\_\+t transition, uint8\+\_\+t input\+State, uint8\+\_\+t output\+State, State\+Machine\+Condition condition, State\+Machine\+Action action)
+\item 
+\Hypertarget{class_state_machine_a4b16cf11156e9601cc35238d7879ccaf}\label{class_state_machine_a4b16cf11156e9601cc35238d7879ccaf} 
+void {\bfseries Remove\+Transition} (uint8\+\_\+t transition)
+\item 
+\Hypertarget{class_state_machine_a282810c1f7b0d9a7320a8bc71b1ceba5}\label{class_state_machine_a282810c1f7b0d9a7320a8bc71b1ceba5} 
+void {\bfseries Set\+On\+Entering} (uint8\+\_\+t state, State\+Machine\+Action action)
+\item 
+\Hypertarget{class_state_machine_aa30b53f362b55b468567b7be6b7bccb3}\label{class_state_machine_aa30b53f362b55b468567b7be6b7bccb3} 
+void {\bfseries Set\+On\+Leaving} (uint8\+\_\+t state, State\+Machine\+Action action)
+\item 
+\Hypertarget{class_state_machine_a1f032426c54da0f490ab2a29f2e89e43}\label{class_state_machine_a1f032426c54da0f490ab2a29f2e89e43} 
+void {\bfseries Clear\+On\+Entering} (uint8\+\_\+t state)
+\item 
+\Hypertarget{class_state_machine_a87645fbade2f0c8b161604e155b362c0}\label{class_state_machine_a87645fbade2f0c8b161604e155b362c0} 
+void {\bfseries Clear\+On\+Leaving} (uint8\+\_\+t state)
+\item 
+\Hypertarget{class_state_machine_aecb4ecf2ee63abd61e306f0e371b7d35}\label{class_state_machine_aecb4ecf2ee63abd61e306f0e371b7d35} 
+void {\bfseries Set\+State} (uint8\+\_\+t state, bool launch\+Leaving, bool launch\+Entering)
+\item 
+\Hypertarget{class_state_machine_a9b5b0c288ea2583867221607280b2605}\label{class_state_machine_a9b5b0c288ea2583867221607280b2605} 
+uint8\+\_\+t {\bfseries Get\+State} () const
+\item 
+\Hypertarget{class_state_machine_ad3d40e86a64ce99a46b68037f2f6a454}\label{class_state_machine_ad3d40e86a64ce99a46b68037f2f6a454} 
+bool {\bfseries Update} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+State\+Machine\+Lib.\+h\item 
+State\+Machine\+Lib.\+cpp\end{DoxyCompactItemize}

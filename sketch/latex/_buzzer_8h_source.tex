@@ -1,0 +1,72 @@
+\doxysection{Buzzer.\+h}
+\hypertarget{_buzzer_8h_source}{}\label{_buzzer_8h_source}\mbox{\hyperlink{_buzzer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ BUZZER\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ BUZZER\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ NOTE\_B5\ \ 988\ }}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ NOTE\_F4\ \ 349\ \ }}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ NOTE\_G5\ \ 784\ \ }}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ NOTE\_C4\ \ 262\ \ }}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{variables_8h}{variables.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}EasyBuzzer.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ buzzer\ 13\ \ }}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_buzzer_8h_a516115750e956e7c851392eeb95d7dcb}{tempo}}\ =\ 60;\ \ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_buzzer_8h_a9d43168fe5d84121ee5089cdae450222}{currentNoteIndex}}\ =\ 0;\ \ }
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{_buzzer_8h_ac3973053d383463d05bd3a6af52afd1e}{currentMelody}};\ \ }
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_buzzer_8h_a126949eafcb9833d2cc1f0a7b1b846a7}{currentMelodyLength}};\ \ }
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{_buzzer_8h_ac6de1295bad909787948120749b06aef}{noteStartTime}}\ =\ 0;\ \ }
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_buzzer_8h_af55f7beec49af3268e5ed9aa85dc8d4f}{isPlaying}}\ =\ \textcolor{keyword}{false};\ \ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_buzzer_8h_ab038cf7a8cb1cd17371f6cc42d2bb361}{buzzerBlock}}[]\ =\ \{}
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{_buzzer_8h_a88aac44b58d74d5aa5749e17a22b8cdd}{NOTE\_B5}},\ 8,\ \mbox{\hyperlink{_buzzer_8h_aff20d9abb2ef6f25afeb44245129eba6}{NOTE\_F4}},\ 8}
+\DoxyCodeLine{00029\ \};\ \ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_buzzer_8h_ab5aeefee5bd6e2712bc28afb997d23e0}{buzzerAlarm}}[]\ =\ \{}
+\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{_buzzer_8h_af71ac5d772736db7a12fd9f9521dd475}{NOTE\_G5}},\ 8,\ \mbox{\hyperlink{_buzzer_8h_adbed706152a3d7114327fc5af3c7e07c}{NOTE\_C4}},\ 8,\ \mbox{\hyperlink{_buzzer_8h_af71ac5d772736db7a12fd9f9521dd475}{NOTE\_G5}},\ 8,\ \mbox{\hyperlink{_buzzer_8h_adbed706152a3d7114327fc5af3c7e07c}{NOTE\_C4}},\ 8}
+\DoxyCodeLine{00033\ \};\ \ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_buzzer_8h_a199b659c341c448b9714b30bc97379c1}{calculateNoteDuration}}(\textcolor{keywordtype}{int}\ note,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_buzzer_8h_a516115750e956e7c851392eeb95d7dcb}{tempo}})\ \{}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{int}\ wholenote\ =\ (60000\ *\ 4)\ /\ \mbox{\hyperlink{_buzzer_8h_a516115750e956e7c851392eeb95d7dcb}{tempo}};}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{int}\ divider\ =\ note;}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordflow}{if}\ (divider\ >\ 0)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ (wholenote)\ /\ divider;}
+\DoxyCodeLine{00043\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (divider\ <\ 0)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{return}\ (wholenote)\ /\ abs(divider)\ *\ 1.5;\ \textcolor{comment}{//\ notas\ con\ puntillo}}
+\DoxyCodeLine{00045\ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_buzzer_8h_a21ab6a4121a04f81c203ac01bc0c1af2}{playNextNote}}()\ \{}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{_buzzer_8h_a9d43168fe5d84121ee5089cdae450222}{currentNoteIndex}}\ <\ \mbox{\hyperlink{_buzzer_8h_a126949eafcb9833d2cc1f0a7b1b846a7}{currentMelodyLength}}\ *\ 2)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{_buzzer_8h_af55f7beec49af3268e5ed9aa85dc8d4f}{isPlaying}})\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ note\ =\ \mbox{\hyperlink{_buzzer_8h_ac3973053d383463d05bd3a6af52afd1e}{currentMelody}}[\mbox{\hyperlink{_buzzer_8h_a9d43168fe5d84121ee5089cdae450222}{currentNoteIndex}}];}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ duration\ =\ \mbox{\hyperlink{_buzzer_8h_a199b659c341c448b9714b30bc97379c1}{calculateNoteDuration}}(\mbox{\hyperlink{_buzzer_8h_ac3973053d383463d05bd3a6af52afd1e}{currentMelody}}[\mbox{\hyperlink{_buzzer_8h_a9d43168fe5d84121ee5089cdae450222}{currentNoteIndex}}\ +\ 1],\ \mbox{\hyperlink{_buzzer_8h_a516115750e956e7c851392eeb95d7dcb}{tempo}});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ tone(\mbox{\hyperlink{_buzzer_8h_ae063708dcb4d38cf311edf254f63e333}{buzzer}},\ note,\ duration\ *\ 0.9);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \mbox{\hyperlink{_buzzer_8h_ac6de1295bad909787948120749b06aef}{noteStartTime}}\ =\ millis();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \mbox{\hyperlink{_buzzer_8h_af55f7beec49af3268e5ed9aa85dc8d4f}{isPlaying}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00060\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ currentTime\ =\ millis();}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ duration\ =\ \mbox{\hyperlink{_buzzer_8h_a199b659c341c448b9714b30bc97379c1}{calculateNoteDuration}}(\mbox{\hyperlink{_buzzer_8h_ac3973053d383463d05bd3a6af52afd1e}{currentMelody}}[\mbox{\hyperlink{_buzzer_8h_a9d43168fe5d84121ee5089cdae450222}{currentNoteIndex}}\ +\ 1],\ \mbox{\hyperlink{_buzzer_8h_a516115750e956e7c851392eeb95d7dcb}{tempo}});}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentTime\ -\/\ \mbox{\hyperlink{_buzzer_8h_ac6de1295bad909787948120749b06aef}{noteStartTime}}\ >=\ duration)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ noTone(\mbox{\hyperlink{_buzzer_8h_ae063708dcb4d38cf311edf254f63e333}{buzzer}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_buzzer_8h_a9d43168fe5d84121ee5089cdae450222}{currentNoteIndex}}\ +=\ 2;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_buzzer_8h_af55f7beec49af3268e5ed9aa85dc8d4f}{isPlaying}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{//\ Resetea\ el\ índice\ cuando\ se\ acaba\ la\ melodía}}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{_buzzer_8h_a9d43168fe5d84121ee5089cdae450222}{currentNoteIndex}}\ =\ 0;}
+\DoxyCodeLine{00072\ \ \ \}}
+\DoxyCodeLine{00073\ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_buzzer_8h_a09d174b231f56e59c025b5aece08ad3c}{startMelody}}(\textcolor{keywordtype}{int}\ melody[],\ \textcolor{keywordtype}{int}\ length)\ \{}
+\DoxyCodeLine{00081\ \ \ \mbox{\hyperlink{_buzzer_8h_ac3973053d383463d05bd3a6af52afd1e}{currentMelody}}\ =\ melody;}
+\DoxyCodeLine{00082\ \ \ \mbox{\hyperlink{_buzzer_8h_a126949eafcb9833d2cc1f0a7b1b846a7}{currentMelodyLength}}\ =\ length;}
+\DoxyCodeLine{00083\ \ \ \mbox{\hyperlink{_buzzer_8h_a9d43168fe5d84121ee5089cdae450222}{currentNoteIndex}}\ =\ 0;}
+\DoxyCodeLine{00084\ \ \ \mbox{\hyperlink{_buzzer_8h_ac6de1295bad909787948120749b06aef}{noteStartTime}}\ =\ millis();}
+\DoxyCodeLine{00085\ \ \ \mbox{\hyperlink{_buzzer_8h_af55f7beec49af3268e5ed9aa85dc8d4f}{isPlaying}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00086\ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00089\ }
+
+\end{DoxyCode}
