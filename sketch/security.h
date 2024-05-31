@@ -1,17 +1,29 @@
+/**
+* @file security.h
+* @brief Componente de control de seguridad
+* Este archivo tiene toda la logica acerca del inicio de secion
+* Tambien tiene las variables para su control como la contraseña
+* @author Miguel Calambas
+* @author Esteban Escandon
+* @author Lina Diaz
+*/
+
 #ifndef SECURITY_H
 #define SECURITY_H
 
 #include "variables.h"
 
-//Varible de seguridad
-const char password [5] = {'0','1','2','3','4'};
-int tries = 0;
-char intentoActual [6];
-int cantidadCaracteres = 0;
-int sistemaBloqueado = 0;
+const char password [5] = {'0','1','2','3','4'}; /*!< contraseña que para acceder*/
+int tries = 0; /*!< Intentos que se han hecho (minimo cero, maximo 3)*/
+char intentoActual [6]; /*!< vector que me guarda lo que ha escrito hasta el momento*/
+int cantidadCaracteres = 0; /*!< cantidad de caracteres escrita hasta el momento*/
+int sistemaBloqueado = 0; /*!< Guarda si el sistema esta bloqueado*/
 
-//Tareas asincronicas
 
+/**
+* @brief Inicializa las variables para el correcto funcionamiento.
+* Tambien inicia la tarea para el loop 
+*/
 void seguridad(){
  
   Serial.println("Ha entrado a el estado Start");
@@ -28,8 +40,11 @@ void seguridad(){
   for(size_t i=0; i<5;i++)
         intentoActual[i] = '*';
 }
+
+/**
+* @brief Hace las acciones necesarias para cuando la contraseña es correcta
+*/
 void runRightPass(){
-  //Se configura led y lcd
   lcd.clear();
   lcd.print("Clave correcta");
   digitalWrite(ledG, HIGH);
@@ -38,8 +53,10 @@ void runRightPass(){
   taskTimeOut30k.Stop();
 }
 
+/**
+* @brief Hace las acciones necesarias para un intento fallido, incluyendo validar si es necesario bloquear el sistema
+*/
 void runWrongPass(){
-  //Se configura para contraseña incorrecta
   lcd.clear();
   lcd.setCursor(0,0);
   lcd.print("Clave incorrecta");
@@ -48,7 +65,6 @@ void runWrongPass(){
   for(size_t i=0; i<5;i++)
     intentoActual[i] = '*';
   taskStopLoop.Start(); 
-  //Se valida si es encesario bloquear sistema
   if(tries == 2){
     taskSysBlock.Start();
   }else{
@@ -57,6 +73,9 @@ void runWrongPass(){
   }
 }
 
+/**
+* @brief Funcion que se va a ejecutar cada vez para validar si se presiono un key y resibir la contraseña
+*/
 void loopS(){
   lcd.setCursor(cantidadCaracteres, 1);
   char key = keypad.getKey();
@@ -79,6 +98,9 @@ void loopS(){
   else
     cantidadCaracteres++;
 }
+/**
+* @brief Hace las acciones para volver a intentar ingresar la contraseña 
+*/
 void again(){
   digitalWrite(ledB, LOW);
   lcd.clear();

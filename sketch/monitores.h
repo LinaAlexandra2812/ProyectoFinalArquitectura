@@ -1,4 +1,5 @@
 
+
 void printMonitorAmbiental() {
   lcd.clear();
   int h = dht.readHumidity();

@@ -1,3 +1,12 @@
+/**
+* @file stateMachine.h
+* @brief componente para configurar la maquina de estado
+* Este archivo tiene toda la logica acerca de la configuracion de transiciones y estados
+* Tambien tiene las funciones que se ejecutan al entrar o salir de un estado
+* @author Miguel Calambas
+* @author Esteban Escandon
+* @author Lina Diaz
+*/
 
 #ifndef STATEMACHINE_H
 #define STATEMACHINE_H
@@ -7,18 +16,55 @@
 #include "menuconfig.h"
 #include "Buzzer.h"
 
+/**
+* @brief Ejecuta acciones necesarias al entrar al estado sysblock
+*/
 void runSysBlock();
+/** 
+* @brief  Ejecuta acciones necesarias al entrar al estado config 
+*/
 void runConfig();
+/**
+* @brief  Ejecuta acciones necesarias al entrar al estado monitorAmbiental
+*/
 void runMonitorAmbiental();
+/**
+* @brief Ejecuta acciones necesarias al entrar al estado monitorEvents
+*/
 void runMonitorEvents();
+/**
+* @brief  Ejecuta acciones necesarias al entrar al estado alarm
+*/
 void runAlarm();
 
+/**
+* @brief  Ejecuta acciones (o detiene tareas) necesarias al salir al estado monitorAmbiental
+*/
 void leavingMonitorAmbiental();
+/**
+* @brief Ejecuta acciones (o detiene tareas) necesarias al salir al estado monitorEvents
+*/
 void leavingMonitorEvents();
+/**
+* @brief Ejecuta acciones (o detiene tareas) necesarias al salir al estado config
+*/
 void leavingConfig();
+/**
+* @brief Ejecuta acciones (o detiene tareas) necesarias al salir al estado alarm
+*/
 void leavingAlarm();
+/**
+* @brief Ejecuta acciones (o detiene tareas) necesarias al salir al estado sysblock
+*/
 void leavingBlock();
+/**
+* @brief Ejecuta acciones (o detiene tareas) necesarias al salir al estado start
+*/
 void leavingStart();
+
+/**
+* @brief Configura los estados de la maquina y sus transiciones
+*/
 void setupMachine(){
   stateMachine.AddTransition(start, config, []() {return input ==correctPassword;});
   stateMachine.AddTransition(start, block, []() {return input == sysBlock;});
@@ -57,6 +103,7 @@ void setupMachine(){
 } 
 
 void startMelody();
+
 void runSysBlock(){
   taskLoop.Stop();
   lcd.setCursor(0,0);
