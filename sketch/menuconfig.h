@@ -1,37 +1,57 @@
-
+/**
+ * @file menuconfig.h
+ * @brief Se configura todos los menus de la pantalla 
+ * Aqui se encuentran las funciones, lineas y Menus de LiquidCrystal
+ *
+ * @author Miguel Calambas VivAS
+ * @author Esteban Santiago Escandon Causaya
+ * @author Lina Alexandra Diaz Ospona 
+ * @version 1.0
+ * @license MIT (u otra licencia si aplica)
+ */
 #ifndef MENUCONFIG_H
 #define MENUCONFIG_H
 
 #include "variables.h"
 #include <LiquidMenu.h>
-#define limitMaxTemp 50
-#define limitMaxHall 1023
-#define limitMaxLight 1023
-#define limitMinTemp 0
-#define limitMinLight 0
+#define limitMaxTemp 50 /*!< Limite establecido por defecto como limite maximo de temperatura*/
+#define limitMaxHall 1023 /*!< Limite establecido por defecto como limite maximo Hall*/
+#define limitMaxLight 1023 /*!< Limite establecido por defecto como limite maximo de Luz*/
+#define limitMinTemp 0 /*!< Limite establecido por defecto como limite minimo de temperatura*/
+#define limitMinLight 0 /*!< Limite establecido por defecto como limite minimo de luz*/
 
 
+LiquidLine line1(0, 1, "TEMP HIGH [", maxTemp, "]"); /*!< primera linea del menu*/
+LiquidLine line2(0, 1, "TEMP LOW [", minTemp, "]"); /*!< segunda linea del menu*/
+LiquidLine line3(0, 1, "LUZ HIGH [", maxLight, "]");/*!< tercera linea del menu*/
+LiquidLine line4(0, 1, "LUZ LOW [", minLight, "]"); /*!< cuarta linea del menu*/
+LiquidLine line5(0, 1, "HALL [", maxHall, "]");/*!< quinta linea del menu*/
+LiquidLine line6(0, 1, "RESET"); /*!< sexta linea del menu*/
 
-LiquidLine line1(0, 1, "TEMP HIGH [", maxTemp, "]");
-LiquidLine line2(0, 1, "TEMP LOW [", minTemp, "]");
-LiquidLine line3(0, 1, "LUZ HIGH [", maxLight, "]");
-LiquidLine line4(0, 1, "LUZ LOW [", minLight, "]");
-LiquidLine line5(0, 1, "HALL [", maxHall, "]");
-LiquidLine line6(0, 1, "RESET");
+LiquidScreen screen; /*!< Pantalla del menu*/
+LiquidMenu menu(lcd); /*!< Menu del lcd*/
 
-LiquidScreen screen;
-LiquidMenu menu(lcd);
-
-// Used for attaching something to the lines, to make them focusable.
+/**
+ * @brief Funcion que no hace nada, pero es necesaria
+*/
 void blankFunction() {
     return;
 }
 
-//Sube los valores de las varibles
+/** 
+*@brief Sube los valores de las varibles
+
+*/
 void upValue(int actualLine);
-//Baja los valores de las vairables
+/**
+ * @brief Baja los valores de las variables
+ * @param actualLine Linea actual en la que se encuentra el menu
+*/
 void downValue(int actualLine);
 
+/**
+ * @brief Inicia el menu de la pantalla
+*/
 void startLiquidMenu(){
 
   screen.add_line(line1);
@@ -61,6 +81,9 @@ void startLiquidMenu(){
   taskLoopMenu.Start();
 }
 
+/**
+ * @brief Loop del menu de la pantalla para hacer los camvios respectivos
+*/
 void loopLiquidMenu(){
   char key = keypad.getKey();
 
@@ -91,6 +114,9 @@ void loopLiquidMenu(){
   
 }
 
+/**
+ * @brief Resetea los valores de las variables
+*/
 void reset(){
   maxTemp = 40;
   minTemp = 0;
@@ -99,6 +125,10 @@ void reset(){
   maxHall = 1000;
 }
 
+/**
+ * @brief Sube los valores de las varibles
+ * @param actualLine Linea actual en la que se encuentra el menu
+*/
 void upValue(int actualLine){
   switch (actualLine) {
   case 0:
@@ -127,6 +157,10 @@ void upValue(int actualLine){
   }
 
 }
+/**
+ * @brief Baja los valores de las variables
+ * @param actualLine Linea actual en la que se encuentra el menu
+*/
 void downValue(int actualLine){
   switch (actualLine) {
   case 0:

@@ -1,33 +1,40 @@
+/**
+* @file Buzzer.h
+* @brief Se guarda toda logica y informacion necesaria para el sonido del buzzer
+* @author Miguel Calambas
+* @author Esteban Escandon
+* @author Lina Diaz
+*/
 #ifndef BUZZER_H
 #define BUZZER_H
 
-//Notas necesarias
-#define NOTE_B5  988
-#define NOTE_F4  349
-#define NOTE_G5  784
-#define NOTE_C4  262
+#define NOTE_B5  988 /*!<  valor de la nota B5*/
+#define NOTE_F4  349  /*!<  valor de la nota F4*/
+#define NOTE_G5  784  /*!<  valor de la nota G5*/
+#define NOTE_C4  262  /*!<  valor de la nota C4*/
 
 #include "variables.h"
 #include "EasyBuzzer.h"
-#define buzzer 13
+#define buzzer 13  /*!< Pin de salida digital para el buzzer*/
 
-int tempo = 60;
-int currentNoteIndex = 0;
-int* currentMelody;
-int currentMelodyLength;
-unsigned long noteStartTime = 0;
-bool isPlaying = false;
+int tempo = 60;  /*!<  temp para el buzzer*/
+int currentNoteIndex = 0;  /*!<  index de la nota actual*/
+int* currentMelody;  /*!<  melodia que se ha configurado*/
+int currentMelodyLength;  /*!<  Lonigutd de la melodia*/
+unsigned long noteStartTime = 0;  /*!<  valor del tiempo de la nota start*/
+bool isPlaying = false;  /*!<  boleano que representa si esta sonando*/
 
-// Definición de melodías en forma de arrays de notas y duraciones
 int buzzerBlock[] = {
   NOTE_B5, 8, NOTE_F4, 8
-};
+};  /*!<  melodia para el estado block*/
 
 int buzzerAlarm[] = {
   NOTE_G5, 8, NOTE_C4, 8, NOTE_G5, 8, NOTE_C4, 8
-};
+};  /*!<  molodia para el alarm*/
 
-// Función que calcula la duración de una nota
+/**
+* @brief calcula la duracion de la nota que se va a tocar
+*/
 int calculateNoteDuration(int note, int tempo) {
   int wholenote = (60000 * 4) / tempo;
   int divider = note;
@@ -39,7 +46,9 @@ int calculateNoteDuration(int note, int tempo) {
   return 0;
 }
 
-// Función que se llama periódicamente para reproducir la siguiente nota
+/**
+* @brief Hace sonar la siguiente nota y valida casos importantes
+*/
 void playNextNote() {
   if (currentNoteIndex < currentMelodyLength * 2) {
     if (!isPlaying) {
@@ -63,7 +72,11 @@ void playNextNote() {
   }
 }
 
-// Función para iniciar la reproducción de una melodía
+/**
+* @brief Configura la meolodia para cuando se ejecute el playNextNote
+* @param melody parametro que resibe la meolodia que se va a configurar
+* @param length parametro que resibe la longitud de la meolodia que se va a configurar
+*/
 void startMelody(int melody[], int length) {
   currentMelody = melody;
   currentMelodyLength = length;

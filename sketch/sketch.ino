@@ -1,10 +1,25 @@
+/**
+ * @file sketch.ino
+ * @brief Se configura lo necesario en el setup,
+ * tambien se ejecutan las tareas necesarias en el loop
+ * y se valida si se ha presionado el boton
+ * @author Miguel Calambas
+ * @author Esteban Santiago
+ * @author Lina Diaz
+ * @version 1.0
+*/
+
 #include "variables.h"
 #include "StateMachineLib.h"
 #include "stateMachine.h"
 
 //Para validar que el boton se presione una vez
-int oldValueButton;
+int oldValueButton; /*!< Valor anterior del boton al presionarlo*/
 
+/**
+ * @brief Se configura lo necesario en el setup
+ * Comenzando por la inicializacion del lcd, la maquina de estados, el sensor dht y el boton
+*/
 void setup() {
   Serial.begin(9600); 
   lcd.begin(16,2); //Iniciamos el lcd para el correcto uso
@@ -14,6 +29,10 @@ void setup() {
   input = unknow; // Iniciamos el input como  desconocido
 }
 
+/**
+ * @brief Se ejecutan las tareas necesarias en el loop
+ * Comenzando por la lectura del boton, la actualizacion de la maquina de estados, la actualizacion del input y la ejecucion de tareas asincronicas
+*/
 void loop() {
   readInput();//Leemos si se ha presionado el boton
   stateMachine.Update(); //Se actualiza la maquina de estado
@@ -21,7 +40,9 @@ void loop() {
   updateTask(); //Se ejecutan tareas asincronicas
 }
 
-//Funcion que valida si se ha presionado el boton
+/**
+ * @brief Se valida si se ha presionado el boton y se cambia en input 
+*/
 void readInput(){
   Input actualInput = (input != unknow) ? input: unknow;
   int valueButton = digitalRead(buttonPin);

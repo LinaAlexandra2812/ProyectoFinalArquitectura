@@ -1,5 +1,5 @@
 /**
- * @file variables.cpp
+ * @file variables.h
  * @brief Archivo para declarar variables generales del proyecto 
  * Aqui se encuentran la configuracion de los pines analogos y virtuales, junto con a las entradas analogas
  *
@@ -14,18 +14,11 @@
 #define VARIABLES_H
 
 #include <Keypad.h>
-//#include <LiquidCrystal.h>
 #include <LiquidMenu.h>
 #include "DHT.h"
 #include "AsyncTaskLib.h"
 #include "StateMachineLib.h"
 #include "Buzzer.h"
-//#include "menuconfig.h"
-
-
-/**
-*@brief Seccion de declaracion de define
-*/
 
 #define ledR 9 /*!< Numero de Pin de entrada led Rojo*/
 #define ledG 8 /*!< Numero de Pin de entrada led Verde*/
@@ -37,103 +30,42 @@
 #define d6 3   /*!< Numero de Pin de entrada d6 */
 #define d7 2   /*!< Numero de Pin de entrada d7 */
 
-
-/**
- * @brief Configuración de pines para sensores 
- */
 //Configuracion pines sensores
 #define photocellPin A1 /*!< Entrada Analoga del photosensor */
 #define hallPin A0 /*!< Entrada Analoga del sensor Hall*/
 #define dhtPin 10 /*!< Entrada Virutal de dhtPin*/
 #define buttonPin 6 /*!< Entrada Virtual para el pin del boton */
 
-/**
- * @brief Configuración de sensores DHT22.
-*/
 //Configuracion sensores
-#define DHTTYPE DHT22 //**< Tipo de sensor DHT (cambiar según corresponda).*/
-/**
- * @brief Inicializa el sensor DHT22.
- *
- * @param dhtPin Pin al que está conectado el sensor.
- * @param DHTTYPE Tipo de sensor DHT (DHT22 en este caso).
- */
-DHT dht(dhtPin, DHTTYPE);
+#define DHTTYPE DHT22 /*!< Tipo de sensor DHT (cambiar según corresponda).*/
 
-/**
- * @brief configuración del liquidCrystal 
- **/
+DHT dht(dhtPin, DHTTYPE); /*!< Objeto de tipo dht donde se confgura (puerto digital, tipo de sensor dht)*/
+
 //Configuracion liquidcrystal
-LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7); /*!< Objeto lcd que guarda la configuracion de los pines del lcd 16x2*/
 
-/**
- * @brief Configuración para máquina de estados
- **/
-//COnfiguracion maquina de estados
-StateMachine stateMachine(6, 13);
+//COnfiguracion maquina de estados|
+StateMachine stateMachine(6, 13); /*!< Objeto de la maquina de estado con 6 estados y 13 transiciones*/
 
-/**
- * @brief Configuración del Keypad
- * **/
 //Configuracion variables keypad
 
-/**
- * @brief Número de filas en el Keypad.
- * 
- * Define el número de filas (ROWS) en el Keypad. 
-*/
-#define ROWS 4
+#define ROWS 4 /*!< Cantidad de filas para la conexion con el keypad*/
 
-/**
- * @brief Número de columnas en el Keypad.
- * Define el número de columnas (COLS) en el Keypad.
-*/
-#define COLS 4
+#define COLS 4 /*!< Cantidad de columnas para la conexion con el keypad*/
 
-/**
- * @brief Define la matriz de teclas del Keypad.
- * Representa las teclas dispuestas en un keypad de 4x4.
- * Cada fila y columna corresponde a una tecla específica
-*/
 char keys[ROWS][COLS] = {
   {'1', '2', '3', 'A'},
   {'4', '5', '6', 'B'},
   {'7', '8', '9', 'C'},
   {'*', '0', '#', 'D'}
-};
+}; /*!< Configuracion de los caracteres de entrada del keypad*/
 
-/**
- * @brief Pines de las filas del Keypad.
- *
- * Define los pines de las filas del Keypad.
- * Conéctalos a los pines correspondientes del hardware.
- */
-byte rowPins[ROWS] = {22, 24, 26, 28};
+byte rowPins[ROWS] = {22, 24, 26, 28}; /*!< Configuracion del los pines de entrada de las filas*/
 
-/**
- * @brief Pines de las columnas del Keypad.
- *
- * Define los pines de las columnas del Keypad.
- * Conéctalos a los pines correspondientes del hardware.
- */
-byte colPins[COLS] = {30, 32, 34, 36};
+byte colPins[COLS] = {30, 32, 34, 36}; /*!< Configuracion de los pines de entrada para las columnas*/
 
-/**
- * @brief Inicialización del Keypad.
- *
- * Crea un objeto Keypad con la configuración proporcionada.
- *
- * @param makeKeymap(keys) Mapa de teclas definido previamente.
- * @param rowPins Arreglo de pines de las filas.
- * @param colPins Arreglo de pines de las columnas.
- * @param ROWS Número de filas en el Keypad.
- * @param COLS Número de columnas en el Keypad.
- */
-Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
+Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS ); /*!< Objeto con configuracoin keypad*/
 
-/**
-*@brief Configuracion transiciones y estados stateMachine
-*/
 enum Input
 {
   correctPassword = 0, /*!< Input Para la transicion correct Password*/
@@ -147,18 +79,8 @@ enum Input
   hallHigh = 8,  /*!< Input Para la transicion de hall alta */
   sysBlock = 9,  /*!< Input Para la transicion de sistema bloqueado*/
   unknow = 10  /*!< Transicion  */
-};
+}; /*!< Posibles transcines de la maquina de estados*/
 
-/**
- * @brief Definición de la enumeración State.
-*/
-
-/**
- * @brief Estados posibles del sistema.
- *
- * Enumeración que representa los diferentes estados del sistema.
- * Cada estado tiene un valor numérico asociado.
- */
 enum State {
   start = 0, /**< Estado de inicio. */
   config = 1, /**< Estado de configuración. */
@@ -166,47 +88,23 @@ enum State {
   monitorEvents = 3, /**< Estado de monitoreo de eventos. */
   alarm = 4, /**< Estado de alarma. */
   block =5 /**< Estado de bloqueo. */
-};
+}; /*!< Posibles estados de la maquina de estados*/
 
-/**
- * @brief Variables de acceso global
- */
+Input input; /*!< Señal para la transicion de la maquina de estados*/
 
-/**
- * @brief Objeto de entrada (input).
- * 
- * Representa el objeto de entrada utilizado en el sistema.
- * Puede contener datos de sensores, teclado, etc.
-*/
-Input input;
+int prendido = 0; /*!< Representa si el led esta prendido*/
 
-/**
- * @brief Estado de encendido.
- * 
- * Variable que indica si el sistema está encendido o apagado.
- * Su valor puede ser 0 (apagado) o 1 (encendido).
-*/
-int prendido = 0;
-
-
-/**
- * @brief Variables límites de lectura
-*/
 int maxTemp = 40; /**< Temperatura máxima permitida en grados. */
 int minTemp = 0; /**< Temperatura mínima permitida en grados. */
 int maxLight= 300; /**< Intensidad lumínica máxima permitida. */
 int minLight= 50; /**< Intensidad limínica mínima permitida. */
 int maxHall = 1000; /**< Valor máximo del sensor Hall. */
 
-/**Tareas Asincronicassecurity
- * @brief Tareas asincónicas de seguridad.
- */
-
 /**
  * @brief Función de bucle principal (loopS).
  *
  * Esta función se ejecuta periódicamente como parte de una tarea asincrónica.
- * Debe implementarse para realizar las operaciones necesarias en cada ciclo.
+ * Cada ciclo es necesario para la ejecucion de seguridad.
  */
 void loopS();
 
@@ -214,64 +112,49 @@ void loopS();
  * @brief Función de manejo de eventos (again).
  *
  * Esta función se ejecuta después de un intervalo específico como parte de una tarea asincrónica.
- * Puede utilizarse para reintentar operaciones o realizar tareas adicionales.
+ * Sirve para volver intentar ingresar una contraseña.
  */
 void again();
 
 /**
- * @brief Tarea asincrónica para el bucle principal.
- *
- * Ejecuta la función loopS cada 1 milisegundo (true indica repetición infinita).
+ *!<Tarea asincrónica para el bucle principal. Ejecuta la función loopS cada 1 milisegundo (true indica repetición infinita).
  */
 AsyncTask taskLoop(1, true, loopS);
 
 /**
- * @brief Tarea asincrónica para el manejo de eventos.
- *
- * Ejecuta la función again después de un intervalo de 2000 milisegundos (false indica una sola ejecución).
+ *!< Tarea asincrónica para el manejo de eventos. Ejecuta la función again después de un intervalo de 2000 milisegundos (false indica una sola ejecución).
  */
 AsyncTask taskAgain(2000, false, again);
 
 /**
- * @brief Tarea asincrónica para detener el bucle principal.
- *
- * Ejecuta una función lambda que detiene la tarea taskLoop después de 1 milisegundo.
+ * !<Tarea asincrónica para detener el bucle principal. Ejecuta una función lambda que detiene la tarea taskLoop después de 1 milisegundo.
  */
 AsyncTask taskStopLoop(1, false, [] () { taskLoop.Stop();} );
 
 
 /**
- * @brief Funciones y tareas asincrónicas para el monitoreo ambiental y del sensor Hall.
+ * !<Funciones y tareas asincrónicas para el monitoreo ambiental y del sensor Hall.
  */
 
 /**
- * @brief Imprime los datos del monitoreo ambiental.
- *
- * Esta función se ejecuta periódicamente como parte de una tarea asincrónica.
- * Debe implementarse para mostrar los valores ambientales (temperatura, luz, etc.).
+ * !<Imprime los datos del monitoreo ambiental. Esta función se ejecuta periódicamente como parte de una tarea asincrónica. Debe implementarse para mostrar los valores ambientales (temperatura, luz, etc.).
  */
 void printMonitorAmbiental();
 
 
 /**
- * @brief Imprime los datos del sensor Hall.
- *
- * Esta función se ejecuta periódicamente como parte de una tarea asincrónica.
- * Debe implementarse para mostrar los valores del sensor Hall (campo magnético, etc.).
+ * !<Imprime los datos del sensor Hall. Esta función se ejecuta periódicamente como parte de una tarea asincrónica. Debe implementarse para mostrar los valores del sensor Hall (campo magnético, etc.).
  */
 void printMonitorHall();
 
 /**
- * @brief Tarea asincrónica para el monitoreo ambiental.
- *
- * Ejecuta la función printMonitorAmbiental cada 300 milisegundos (true indica repetición infinita).
+ * !<Tarea asincrónica para el monitoreo ambiental.
+  Ejecuta la función printMonitorAmbiental cada 300 milisegundos (true indica repetición infinita).
  */
 AsyncTask taskLoopMonitorAmbiental(300, true, printMonitorAmbiental);
 
 /**
- * @brief Tarea asincrónica para el sensor Hall.
- *
- * Ejecuta la función printMonitorHall cada 300 milisegundos (true indica repetición infinita).
+ *!<Tarea asincrónica para el sensor Hall.Ejecuta la función printMonitorHall cada 300 milisegundos (true indica repetición infinita).
  */
 AsyncTask taskLoopMonitorHall(300, true, printMonitorHall);
 
@@ -288,9 +171,7 @@ AsyncTask taskLoopMonitorHall(300, true, printMonitorHall);
 void loopLiquidMenu();
 
 /**
- * @brief Tarea asincrónica para el bucle principal de LiquidMenu.
- *
- * Ejecuta la función loopLiquidMenu cada 100 milisegundos (true indica repetición infinita).
+ * !< Tarea asincrónica para el bucle principal de LiquidMenu. Ejecuta la función loopLiquidMenu cada 100 milisegundos (true indica repetición infinita).
  */
 AsyncTask taskLoopMenu(100, true, loopLiquidMenu); 
 
@@ -299,16 +180,12 @@ AsyncTask taskLoopMenu(100, true, loopLiquidMenu);
 */
 
 /**
- * @brief Tarea asincrónica para reproducir la siguiente nota en la alarma.
- *
- * Ejecuta la función playNextNote cada 1 milisegundo (true indica repetición infinita).
+ * !<Tarea asincrónica para reproducir la siguiente nota en la alarma Ejecuta la función playNextNote cada 1 milisegundo (true indica repetición infinita).
  */
 AsyncTask taskMelodyAlarm(1, true, playNextNote);
 
 /**
- * @brief Tarea asincrónica para reproducir la siguiente nota en el bloqueo.
- *
- * Ejecuta la función playNextNote cada 1 milisegundo (true indica repetición infinita).
+ * !<Tarea asincrónica para reproducir la siguiente nota en el bloqueo Ejecuta la función playNextNote cada 1 milisegundo (true indica repetición infinita).
  */
 AsyncTask taskMelodyBlock(1, true, playNextNote);
 
@@ -317,9 +194,7 @@ AsyncTask taskMelodyBlock(1, true, playNextNote);
 */
 
 /**
- * @brief Tarea asincrónica para el LED rojo.
- *
- * Enciende o apaga el LED rojo periódicamente cada 500 milisegundos (true indica repetición infinita).
+ * !<Tarea asincrónica para el LED rojo. Enciende o apaga el LED rojo periódicamente cada 500 milisegundos (true indica repetición infinita).
  */
 AsyncTask taskOnLedR(500, true, [](){
   if(prendido== 0)
@@ -332,9 +207,7 @@ AsyncTask taskOnLedR(500, true, [](){
 });
 
 /**
- * @brief Tarea asincrónica para el LED azul.
- *
- * Enciende o apaga el LED azul periódicamente cada 800 milisegundos (true indica repetición infinita).
+ * !< Tarea asincrónica para el LED azul. Enciende o apaga el LED rojo periódicamente cada 800 milisegundos (true indica repetición infinita).
  */
 AsyncTask taskOnLedB(800, true, [](){
   if(prendido== 0)
@@ -348,104 +221,89 @@ AsyncTask taskOnLedB(800, true, [](){
  * @brief Ejecuta acciones cuando se ingresa una contraseña incorrecta.
  *
  * Esta función se llama cuando se detecta una contraseña incorrecta en el sistema.
- * Debe implementarse para manejar las acciones específicas relacionadas con contraseñas erróneas.
+ * Funcion para ejecutar que hay una contraseña incorrecta.
  */
 void runWrongPass();
 
-
 /**
- * @brief Tarea para manejar la transición a la entrada correcta de la contraseña.
- *
- * Esta tarea se ejecuta una vez después de 2000 ms y actualiza el estado de entrada
- * a Input::correctPassword.
+ * !<Tarea para manejar la transición a la entrada correcta de la contraseña. 
+ Esta tarea se ejecuta una vez después de 2000 ms y actualiza el estado de entrada a Input::correctPassword.
  */
 AsyncTask taskCorrect(2000, false, [](){ input = Input::correctPassword;});
 
 /**
- * @brief Tarea para manejar el bloqueo del sistema.
- *
- * Esta tarea se ejecuta una vez después de 10 ms y actualiza el estado de entrada
- * a Input::sysBlock.
+ *!<Tarea para manejar el bloqueo del sistema.
+   Esta tarea se ejecuta una vez después de 10 ms y actualiza el estado de entrada a Input::sysBlock.
  */
 AsyncTask taskSysBlock(10, false, [] () {input = Input::sysBlock;  });
 /**
- * @brief Tarea para manejar el tiempo de espera de 7 segundos.
- *
- * Esta tarea se ejecuta una vez después de 7000 ms y actualiza el estado de entrada
- * a Input::timeOut7.
+ *!<Tarea para manejar el tiempo de espera de 7 segundos.
+  Esta tarea se ejecuta una vez después de 7000 ms y actualiza el estado de entrada a Input::timeOut7.
  */
 AsyncTask taskTimeOut7(7000, false, [](){input = Input::timeOut7;});
 
 /**
- * @brief Tarea para manejar el tiempo de espera de 3 segundos.
- *
- * Esta tarea se ejecuta una vez después de 3000 ms y actualiza el estado de entrada
- * a Input::timeOut3.
+ * !< Tarea para manejar el tiempo de espera de 3 segundos.
+  Esta tarea se ejecuta una vez después de 3000 ms y actualiza el estado de entrada
+ a Input::timeOut3.
  */
 AsyncTask taskTimeOut3(3000, false, [](){input = Input::timeOut3;});
 
 /**
- * @brief Tarea para manejar el tiempo de espera de 4 segundos.
- *
- * Esta tarea se ejecuta una vez después de 4000 ms y actualiza el estado de entrada
- * a Input::timeOut4.
+ *!<Tarea para manejar el tiempo de espera de 4 segundos.
+  Esta tarea se ejecuta una vez después de 4000 ms y actualiza el estado de entrada
+  a Input::timeOut4.
  */
 AsyncTask taskTimeOut4(4000, false, [](){input = Input::timeOut4;});
 
 /**
- * @brief Tarea para manejar el tiempo de espera de 5 segundos por contraseñas incorrectas.
- *
- * Esta tarea se ejecuta una vez después de 5000 ms y llama a la función runWrongPass.
+ * !<Tarea para manejar el tiempo de espera de 5 segundos por contraseñas incorrectas.
+  Esta tarea se ejecuta una vez después de 5000 ms y llama a la función runWrongPass.
  */
 AsyncTask taskTimeOut30k(5000, false, [](){runWrongPass();});
 
 /**
- * @brief Tarea para manejar el tiempo de espera de 10 segundos.
- *
- * Esta tarea se ejecuta una vez después de 10000 ms y actualiza el estado de entrada
- * a Input::timeOut10.
+ * !<Tarea para manejar el tiempo de espera de 10 segundos.
+Esta tarea se ejecuta una vez después de 10000 ms y actualiza el estado de entrada
+ a Input::timeOut10.
  */
 AsyncTask taskTimeOut10(10000, false, []() { input = Input::timeOut10; });
 
 
 /**
- * @brief Tarea para manejar la pulsación de un botón.
- *
- * Esta tarea se ejecuta una vez después de 10 ms y actualiza el estado de entrada
- * a Input::button.
+ * !< Tarea para manejar la pulsación de un botón.
+  Esta tarea se ejecuta una vez después de 10 ms y actualiza el estado de entrada
+  a Input::button.
  */
 
 AsyncTask taskButton(10, false, [] () { input = Input::button;});
 
 /**
- * @brief Tarea para manejar una temperatura alta.
- *
- * Esta tarea se ejecuta una vez después de 5 ms y actualiza el estado de entrada
- * a Input::tempHigh.
+ *!<Tarea para manejar una temperatura alta.
+  Esta tarea se ejecuta una vez después de 5 ms y actualiza el estado de entrada
+  a Input::tempHigh.
  */
 AsyncTask taskTempHigh(5, false, [](){ input = Input::tempHigh;});
 
 /**
- * @brief Tarea para manejar una alta luminosidad.
- *
- * Esta tarea se ejecuta una vez después de 5 ms y actualiza el estado de entrada
- * a Input::lightHigh.
+ * !<Tarea para manejar una alta luminosidad.
+   Esta tarea se ejecuta una vez después de 5 ms y actualiza el estado de entrada
+   a Input::lightHigh.
  */
 AsyncTask taskLightHigh(5, false, [](){ input = Input::lightHigh;});
 
 /**
- * @brief Tarea para manejar una alta detección en el sensor de hall.
- *
- * Esta tarea se ejecuta una vez después de 5 ms y actualiza el estado de entrada
- * a Input::hallHigh.
+ * !<Tarea para manejar una alta detección en el sensor de hall.
+  Esta tarea se ejecuta una vez después de 5 ms y actualiza el estado de entrada
+  a Input::hallHigh.
  */
 AsyncTask taskHallHigh(5, false, [](){ input = Input::hallHigh;});
 
 
 /**
-*@brief Funcion para Actualizar las tareas asincronicas
+* @brief 
+* Funcion para Actualizar todas las tareas asincronicas
 */
-
 
 void updateTask(){
   taskTimeOut10.Update();

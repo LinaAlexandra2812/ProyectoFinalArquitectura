@@ -102,8 +102,14 @@ void setupMachine(){
   stateMachine.SetState(start, false, true);
 } 
 
+/**
+ * @brief 
+*/
 void startMelody();
 
+/**
+ * @brief Función que se encarg
+*/
 void runSysBlock(){
   taskLoop.Stop();
   lcd.setCursor(0,0);
