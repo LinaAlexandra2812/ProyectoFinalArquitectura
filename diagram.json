@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "author": "MIGUEL ANGEL CALAMBAS VIVAS",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": 285, "left": 79.6, "attrs": {} },
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": 58.2, "left": 6, "attrs": {} },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": 292,
+      "left": 433.1,
+      "attrs": { "common": "cathode" }
+    },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -178.97, "left": 476.8, "attrs": {} },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -261.2,
+      "left": 792.8,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 240.3,
+      "left": -24.6,
+      "attrs": { "temperature": "39.9", "humidity": "57.5" }
+    },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 368, "left": -124, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": 497,
+      "left": 259.2,
+      "attrs": { "color": "green", "bounce": "0", "key": "Enter" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 417.05,
+      "left": 277,
+      "rotate": 180,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 165.6,
+      "left": 510.6,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "mega:GND.2", "bb1:tn.24", "black", [ "v16.5", "h184.55" ] ],
+    [ "mega:5V", "bb1:tp.25", "white", [ "v26.1", "h194.3" ] ],
+    [ "bb1:36t.e", "mega:9", "red", [ "v-374.4", "h-240" ] ],
+    [ "bb1:37t.e", "bb1:tn.25", "black", [ "v0", "h-422.4" ] ],
+    [ "bb1:38t.e", "mega:8", "green", [ "v-345.6", "h-249.6" ] ],
+    [ "bb1:39t.e", "mega:7", "blue", [ "v-364.8", "h-230.4" ] ],
+    [ "lcd1:VSS", "bb1:tn.23", "black", [ "v76.8", "h-76.8", "v278.5" ] ],
+    [ "lcd1:VDD", "bb1:tp.23", "white", [ "v86.4", "h-67.1", "v258.9" ] ],
+    [ "lcd1:A", "bb1:tp.22", "white", [ "v76.8", "h-220.9", "v268.5" ] ],
+    [ "lcd1:K", "bb1:tn.22", "black", [ "v76.8", "h-240", "v278.5" ] ],
+    [ "lcd1:RS", "mega:12", "#8f4814", [ "h0.3", "v105.6", "h-393.6" ] ],
+    [ "lcd1:RW", "bb1:tn.21", "black", [ "v76.8", "h-144.1", "v278.5" ] ],
+    [ "lcd1:E", "mega:11", "#8f4814", [ "v96", "h-402.8" ] ],
+    [ "lcd1:D4", "mega:5", "#8f4814", [ "v86.4", "h-393.6" ] ],
+    [ "lcd1:D5", "mega:4", "#8f4814", [ "v67.2", "h-383.9" ] ],
+    [ "lcd1:D6", "mega:3", "#8f4814", [ "v38.4", "h-393.4" ] ],
+    [ "lcd1:D7", "mega:2", "#8f4814", [ "v28.8", "h-393.3" ] ],
+    [ "keypad1:R1", "mega:22", "green", [ "v0" ] ],
+    [ "keypad1:R2", "mega:24", "green", [ "v0" ] ],
+    [ "keypad1:R3", "mega:26", "green", [ "v0" ] ],
+    [ "keypad1:R4", "mega:28", "green", [ "v0" ] ],
+    [ "keypad1:C1", "mega:30", "green", [ "v0" ] ],
+    [ "keypad1:C2", "mega:32", "green", [ "v0" ] ],
+    [ "keypad1:C3", "mega:34", "green", [ "v0" ] ],
+    [ "keypad1:C4", "mega:36", "green", [ "v0" ] ],
+    [ "dht1:VCC", "bb1:tp.1", "red", [ "v0" ] ],
+    [ "dht1:GND", "bb1:tn.1", "black", [ "v0" ] ],
+    [ "dht1:SDA", "mega:10", "green", [ "v0" ] ],
+    [ "ldr1:VCC", "bb1:tp.2", "red", [ "h0" ] ],
+    [ "ldr1:GND", "bb1:tn.2", "black", [ "h0" ] ],
+    [ "ldr1:AO", "mega:A1", "green", [ "h0" ] ],
+    [ "bb1:25b.i", "bb1:tn.20", "black", [ "v0" ] ],
+    [ "mega:6", "btn1:2.l", "green", [ "v0" ] ],
+    [ "bb1:19b.g", "mega:6", "green", [ "v0" ] ],
+    [ "btn1:1.r", "bb1:tp.16", "red", [ "v0" ] ],
+    [ "mega:GND.1", "bz1:1", "black", [ "v0" ] ],
+    [ "bz1:2", "mega:13", "green", [ "v-278.4", "h-412.6" ] ],
+    [ "rgb1:R", "bb1:36t.a", "", [ "$bb" ] ],
+    [ "rgb1:COM", "bb1:37t.b", "", [ "$bb" ] ],
+    [ "rgb1:G", "bb1:38t.a", "", [ "$bb" ] ],
+    [ "rgb1:B", "bb1:39t.a", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:25b.h", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:19b.h", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
